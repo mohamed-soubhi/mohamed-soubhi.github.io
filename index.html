@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohamed Soubhi — Automotive Software Engineer</title>
+  <meta name="description" content="Senior Automotive Software Engineer with 11+ years in safety-critical embedded systems. AUTOSAR · ASIL B · Graph Data Science. Madrid, Spain.">
+  <meta name="keywords" content="AUTOSAR, Embedded Software, Automotive, ASIL B, Neo4j, Graph Data Science, ISO 26262, ASPICE, ARM Cortex-M7">
+  <meta property="og:title" content="Mohamed Soubhi — Automotive Software Engineer">
+  <meta property="og:description" content="11+ years bridging safety-critical embedded systems and graph data science in automotive.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#07070b">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #07070b;
+      --bg-surface:  #0d0d14;
+      --bg-card:     #101018;
+      --border:      rgba(255,255,255,0.06);
+      --border-h:    rgba(255,255,255,0.13);
+      --text:        #eeeef5;
+      --text-2:      #9898aa;
+      --text-3:      #50505f;
+      --accent:      #4a7cf7;
+      --accent-dim:  rgba(74,124,247,0.15);
+      --accent-glow: rgba(74,124,247,0.22);
+      --sans:        'Inter', system-ui, -apple-system, sans-serif;
+      --mono:        'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      height: 60px;
+      padding: 0 max(24px, calc((100vw - 1140px) / 2));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid transparent;
+      transition: background 300ms, border-color 300ms, backdrop-filter 300ms;
+    }
+    nav.scrolled {
+      background: rgba(7,7,11,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-color: var(--border);
+    }
+    .nav-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-2);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 180ms;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ─── SHARED LAYOUT ─── */
+    section {
+      padding: 110px max(24px, calc((100vw - 1140px) / 2));
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.15;
+      margin-bottom: 52px;
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -220px; left: -180px;
+      width: 680px; height: 680px;
+      background: radial-gradient(circle, rgba(74,124,247,0.07) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(124,58,237,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-pre {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.1s ease forwards;
+    }
+    .hero-name {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1.0;
+      margin-bottom: 18px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.2s ease forwards;
+    }
+    .hero-title {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: var(--text-2);
+      font-weight: 400;
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.35s ease forwards;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 44px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.48s ease forwards;
+    }
+    .badge {
+      padding: 5px 14px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-family: var(--mono);
+      color: var(--text-2);
+      background: var(--bg-surface);
+    }
+    .badge.hi {
+      border-color: rgba(74,124,247,0.45);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.58s ease forwards;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 200ms ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #6b97ff; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(74,124,247,0.35); }
+    .btn-ghost { background: transparent; color: var(--text-2); border: 1px solid var(--border); }
+    .btn-ghost:hover { border-color: var(--border-h); color: var(--text); transform: translateY(-1px); }
+
+    .scroll-cue {
+      position: absolute;
+      bottom: 36px;
+      left: max(24px, calc((100vw - 1140px) / 2));
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 0;
+      animation: fadeIn 1s 1.3s ease forwards;
+    }
+    .scroll-cue span {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--text-3);
+    }
+    .scroll-line {
+      width: 32px; height: 1px;
+      background: linear-gradient(to right, var(--text-3), transparent);
+      animation: scanLine 2s ease infinite;
+    }
+
+    /* ─── ABOUT ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--text-2);
+      font-size: 1rem;
+      line-height: 1.82;
+      margin-bottom: 18px;
+    }
+    .about-text p strong { color: var(--text); font-weight: 600; }
+    .about-stats { display: grid; gap: 14px; }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 22px;
+      transition: border-color 200ms;
+    }
+    .stat-card:hover { border-color: var(--border-h); }
+    .stat-number {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      display: block;
+      font-family: var(--mono);
+    }
+    .stat-label { font-size: 0.78rem; color: var(--text-2); margin-top: 2px; }
+
+    /* ─── SKILLS ─── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .skill-cat {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 24px;
+      transition: border-color 200ms;
+    }
+    .skill-cat:hover { border-color: var(--border-h); }
+    .skill-cat-name {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag {
+      padding: 3px 10px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.77rem;
+      color: var(--text-2);
+    }
+
+    /* ─── TIMELINE ─── */
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--accent) 0%, rgba(74,124,247,0.15) 60%, transparent 100%);
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 56px;
+    }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -34px; top: 7px;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-dim);
+    }
+    .tl-meta {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+    .tl-company {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .tl-period {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-3);
+    }
+    .tl-role {
+      font-size: 0.84rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .tl-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .tl-bullets li {
+      font-size: 0.875rem;
+      color: var(--text-2);
+      padding-left: 16px;
+      position: relative;
+    }
+    .tl-bullets li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--text-3);
+    }
+
+    /* ─── PROJECTS ─── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 18px;
+    }
+    .proj-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 26px 28px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: all 240ms ease;
+    }
+    .proj-card:hover {
+      border-color: rgba(74,124,247,0.35);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+    .proj-icon {
+      width: 38px; height: 38px;
+      border-radius: 9px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(74,124,247,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      margin-bottom: 16px;
+    }
+    .proj-name {
+      font-family: var(--mono);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .proj-desc {
+      font-size: 0.83rem;
+      color: var(--text-2);
+      line-height: 1.65;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+    .proj-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+    .stack-tag {
+      padding: 2px 8px;
+      font-size: 0.68rem;
+      font-family: var(--mono);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--text-3);
+    }
+
+    /* ─── CONTACT ─── */
+    #contact { text-align: center; }
+    #contact .section-title { margin-bottom: 12px; }
+    .contact-sub {
+      color: var(--text-2);
+      font-size: 0.95rem;
+      max-width: 480px;
+      margin: 0 auto 44px;
+      line-height: 1.7;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+      padding: 22px 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-2);
+      font-size: 0.85rem;
+      min-width: 140px;
+      transition: all 200ms ease;
+    }
+    .contact-card:hover {
+      border-color: var(--border-h);
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+    .contact-card .c-icon { font-size: 1.3rem; }
+    .contact-card strong { font-size: 0.85rem; color: var(--text); }
+    .contact-card .c-handle { font-size: 0.72rem; font-family: var(--mono); color: var(--text-3); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 26px max(24px, calc((100vw - 1140px) / 2));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    footer p {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-3);
+    }
+
+    /* ─── REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.58s ease, transform 0.58s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── KEYFRAMES ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes scanLine {
+      0%, 100% { opacity: 0.35; }
+      50%       { opacity: 0.9; }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 860px) {
+      section { padding: 80px 20px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      footer { flex-direction: column; text-align: center; }
+      .about-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a class="nav-name" href="#hero">Mohamed Soubhi</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Stack</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section id="hero">
+    <p class="hero-pre">// automotive · embedded · graph data science</p>
+    <h1 class="hero-name">Mohamed<br>Soubhi</h1>
+    <p class="hero-title">
+      Senior Automotive Software Engineer — 11+ years in safety-critical embedded systems,
+      now applying graph data science to automotive software validation.
+    </p>
+    <div class="hero-badges">
+      <span class="badge hi">AUTOSAR</span>
+      <span class="badge hi">ASIL B</span>
+      <span class="badge hi">Neo4j · Graph DS</span>
+      <span class="badge">ISO 26262</span>
+      <span class="badge">ASPICE L4</span>
+      <span class="badge">ARM Cortex-M7</span>
+      <span class="badge">Madrid, Spain · EU Permit</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="https://www.linkedin.com/in/mohamed-soubhi" target="_blank" rel="noopener" class="btn btn-primary">LinkedIn ↗</a>
+      <a href="https://github.com/mohamed-soubhi" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+      <a href="mailto:eng.mohamed.soubhi@gmail.com" class="btn btn-ghost">Email</a>
+    </div>
+    <div class="scroll-cue">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─── ABOUT ─── -->
+  <section id="about">
+    <p class="section-label reveal">01 / about</p>
+    <h2 class="section-title reveal">Where embedded safety<br>meets data intelligence.</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="reveal">
+          I've spent 11+ years building automotive embedded software at <strong>Valeo</strong>,
+          <strong>TTTech Auto</strong>, and <strong>Concentrio AG</strong> — across powertrain,
+          safety, and advanced driver-assistance domains.
+        </p>
+        <p class="reveal">
+          At Concentrio, I moved into territory very few engineers occupy: applying
+          <strong>Graph Data Science with Neo4j</strong> to validate signal flows in automotive software.
+          I build Python-powered analysis pipelines that solve quality problems traditional
+          toolchains can't address.
+        </p>
+        <p class="reveal">
+          My value is the intersection — I speak AUTOSAR, MISRA-C, and ASIL B at depth,
+          and I can build the <strong>data layer</strong> that closes the loop between code and
+          vehicle safety. EU Work Permit holder, based in Madrid.
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card reveal">
+          <span class="stat-number">11+</span>
+          <span class="stat-label">years automotive embedded</span>
+        </div>
+        <div class="stat-card reveal">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Tier-1 automotive companies</span>
+        </div>
+        <div class="stat-card reveal">
+          <span class="stat-number">ASIL&nbsp;B</span>
+          <span class="stat-label">ISO 26262 functional safety</span>
+        </div>
+        <div class="stat-card reveal">
+          <span class="stat-number">L4</span>
+          <span class="stat-label">ASPICE process level</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─── SKILLS ─── -->
+  <section id="skills">
+    <p class="section-label reveal">02 / stack</p>
+    <h2 class="section-title reveal">Technical skills.</h2>
+    <div class="skills-grid">
+      <div class="skill-cat reveal">
+        <p class="skill-cat-name">Embedded &amp; AUTOSAR</p>
+        <div class="skill-tags">
+          <span class="skill-tag">C</span>
+          <span class="skill-tag">AUTOSAR BSW/RTE/ASW</span>
+          <span class="skill-tag">ARM Cortex-M7</span>
+          <span class="skill-tag">AURIX TC3xx</span>
+          <span class="skill-tag">UDS / ISO 14229</span>
+          <span class="skill-tag">MISRA-C</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <p class="skill-cat-name">Functional Safety</p>
+        <div class="skill-tags">
+          <span class="skill-tag">ISO 26262</span>
+          <span class="skill-tag">ASIL B</span>
+          <span class="skill-tag">ASPICE L4</span>
+          <span class="skill-tag">Aurix Safety Library</span>
+          <span class="skill-tag">SafeWDGM · SafeTSTm</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <p class="skill-cat-name">Data Science</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Neo4j</span>
+          <span class="skill-tag">Graph Data Science</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag">Keras</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <p class="skill-cat-name">Vector &amp; Debug Tools</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Lauterbach Trace32</span>
+          <span class="skill-tag">CANalyzer</span>
+          <span class="skill-tag">Davinci Configurator</span>
+          <span class="skill-tag">VectorCAST</span>
+          <span class="skill-tag">Gliwa T1 Profiler</span>
+          <span class="skill-tag">QAC · Polyspace</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <p class="skill-cat-name">DevOps &amp; Infra</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Git · Bitbucket</span>
+          <span class="skill-tag">Jira · Confluence</span>
+          <span class="skill-tag">Reqtify</span>
+          <span class="skill-tag">DVC</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <p class="skill-cat-name">Methodologies</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Scrum / Agile</span>
+          <span class="skill-tag">V-Model</span>
+          <span class="skill-tag">TDD</span>
+          <span class="skill-tag">ASPICE</span>
+          <span class="skill-tag">FMEA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─── EXPERIENCE ─── -->
+  <section id="experience">
+    <p class="section-label reveal">03 / experience</p>
+    <h2 class="section-title reveal">Career.</h2>
+    <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-meta">
+          <span class="tl-company">Concentrio AG</span>
+          <span class="tl-period">Jun 2023 – Present · Madrid, Spain</span>
+        </div>
+        <p class="tl-role">Senior Software Engineer · AUTOSAR · Graph Data Science</p>
+        <ul class="tl-bullets">
+          <li>Architected Neo4j graph solutions for automated signal-flow validation in OEM automotive software</li>
+          <li>Led multiple customer analysis projects; built Python + Docker pipelines for validation reporting</li>
+          <li>Managed technical onboarding — established documentation across complex automotive standards</li>
+        </ul>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-meta">
+          <span class="tl-company">TTTech Auto Iberia</span>
+          <span class="tl-period">Jun 2021 – Jun 2023 · Madrid, Spain</span>
+        </div>
+        <p class="tl-role">Safety Embedded Software Engineer · Motionwise / HIP32G</p>
+        <ul class="tl-bullets">
+          <li>Developed safety-critical embedded modules on ARM Cortex-M7 / AURIX following full V-cycle</li>
+          <li>Contributed to ASPICE Level 4 documentation audit — team achieved zero-defect milestone</li>
+          <li>Resolved MISRA-C violations via QAC; integrated Gliwa T1 for multi-core CPU profiling</li>
+          <li>In-circuit debugging with Lauterbach Trace32; feature dev with CANalyzer and Davinci</li>
+        </ul>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-meta">
+          <span class="tl-company">Valeo</span>
+          <span class="tl-period">Jan 2017 – Jul 2021 · Cairo, Egypt</span>
+        </div>
+        <p class="tl-role">Senior Embedded Software Engineer · Powertrain Systems (DCDC &amp; EDC)</p>
+        <ul class="tl-bullets">
+          <li>Led ASIL B safety modules upgrade using Aurix Safety Library (SafeWDGM, SafeTSTm, SafeDGM)</li>
+          <li>Led EOL calibration software development; integrated AUTOSAR Diagnostic Component (ISO 14229-1)</li>
+          <li>Automated R&amp;D workflows in Python/JavaScript — ~20% reduction in code generation time</li>
+          <li>Static analysis with Polyspace; requirements traceability via Reqtify</li>
+        </ul>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-meta">
+          <span class="tl-company">BioBusiness</span>
+          <span class="tl-period">Feb 2015 – Dec 2016 · Cairo, Egypt</span>
+        </div>
+        <p class="tl-role">Embedded Software Engineer · Medical Devices</p>
+        <ul class="tl-bullets">
+          <li>STM32F4 firmware for coagulation analyzer (MiraClot), patient monitor (BioMon), cloud SCADA</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─── PROJECTS ─── -->
+  <section id="projects">
+    <p class="section-label reveal">04 / projects</p>
+    <h2 class="section-title reveal">Open source work.</h2>
+    <div class="projects-grid">
+
+      <a href="https://github.com/mohamed-soubhi/c-dependency-graph" target="_blank" rel="noopener" class="proj-card reveal">
+        <div class="proj-icon">⬡</div>
+        <p class="proj-name">c-dependency-graph</p>
+        <p class="proj-desc">Parses C/C++ source and builds function-call dependency graphs in Neo4j. Directly mirrors the signal-flow validation approach used in production automotive software analysis.</p>
+        <div class="proj-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Neo4j</span>
+          <span class="stack-tag">Cypher</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/mohamed-soubhi/can-bus-analysis" target="_blank" rel="noopener" class="proj-card reveal">
+        <div class="proj-icon">〰</div>
+        <p class="proj-name">can-bus-analysis</p>
+        <p class="proj-desc">Anomaly detection on automotive CAN bus signal data using time-series analysis and machine learning classifiers on publicly available datasets.</p>
+        <div class="proj-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Pandas</span>
+          <span class="stack-tag">Scikit-learn</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/mohamed-soubhi/embedded-python-tools" target="_blank" rel="noopener" class="proj-card reveal">
+        <div class="proj-icon">⚙</div>
+        <p class="proj-name">embedded-python-tools</p>
+        <p class="proj-desc">Automation scripts for embedded workflows: MISRA violation report parsing, Trace32 log analysis, and code generation helpers from Valeo-era R&amp;D experience.</p>
+        <div class="proj-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Embedded</span>
+          <span class="stack-tag">Automation</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/mohamed-soubhi/autosar-notes" target="_blank" rel="noopener" class="proj-card reveal">
+        <div class="proj-icon">📐</div>
+        <p class="proj-name">autosar-notes</p>
+        <p class="proj-desc">Curated AUTOSAR architecture reference — BSW/RTE/ASW concepts, diagrams, and cheat sheets built from 11 years of hands-on automotive embedded work.</p>
+        <div class="proj-stack">
+          <span class="stack-tag">AUTOSAR</span>
+          <span class="stack-tag">Markdown</span>
+          <span class="stack-tag">Diagrams</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─── CONTACT ─── -->
+  <section id="contact">
+    <p class="section-label reveal">05 / contact</p>
+    <h2 class="section-title reveal">Open to the right opportunity.</h2>
+    <p class="contact-sub reveal">
+      Interested in Software Defined Vehicles, automotive data validation, and Edge AI/TinyML
+      in embedded systems. EU Work Permit holder (Spain).
+    </p>
+    <div class="contact-links">
+      <a href="mailto:eng.mohamed.soubhi@gmail.com" class="contact-card reveal">
+        <span class="c-icon">✉</span>
+        <strong>Email</strong>
+        <span class="c-handle">eng.mohamed.soubhi@gmail.com</span>
+      </a>
+      <a href="https://www.linkedin.com/in/mohamed-soubhi" target="_blank" rel="noopener" class="contact-card reveal">
+        <span class="c-icon">💼</span>
+        <strong>LinkedIn</strong>
+        <span class="c-handle">in/mohamed-soubhi</span>
+      </a>
+      <a href="https://github.com/mohamed-soubhi" target="_blank" rel="noopener" class="contact-card reveal">
+        <span class="c-icon">⌨</span>
+        <strong>GitHub</strong>
+        <span class="c-handle">mohamed-soubhi</span>
+      </a>
+      <a href="https://www.kaggle.com/mohamedsoubhi" target="_blank" rel="noopener" class="contact-card reveal">
+        <span class="c-icon">📊</span>
+        <strong>Kaggle</strong>
+        <span class="c-handle">mohamedsoubhi</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Mohamed Soubhi</p>
+    <p>Madrid, Spain · EU Work Permit · Open to automotive &amp; SDV roles</p>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Scroll-reveal via IntersectionObserver
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.08, rootMargin: '0px 0px -36px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
