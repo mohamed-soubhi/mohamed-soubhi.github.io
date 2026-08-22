@@ -1,846 +1,898 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohamed Soubhi — Automotive Software Engineer</title>
-  <meta name="description" content="Senior Automotive Software Engineer with 11+ years in safety-critical embedded systems. AUTOSAR · ASIL B · Graph Data Science. Madrid, Spain.">
-  <meta name="keywords" content="AUTOSAR, Embedded Software, Automotive, ASIL B, Neo4j, Graph Data Science, ISO 26262, ASPICE, ARM Cortex-M7">
-  <meta property="og:title" content="Mohamed Soubhi — Automotive Software Engineer">
-  <meta property="og:description" content="11+ years bridging safety-critical embedded systems and graph data science in automotive.">
-  <meta property="og:type" content="website">
-  <meta name="theme-color" content="#07070b">
-
+  <title>Mohamed Soubhi — Interactive Career Timeline</title>
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:          #07070b;
-      --bg-surface:  #0d0d14;
-      --bg-card:     #101018;
-      --border:      rgba(255,255,255,0.06);
-      --border-h:    rgba(255,255,255,0.13);
-      --text:        #eeeef5;
-      --text-2:      #9898aa;
-      --text-3:      #50505f;
-      --accent:      #4a7cf7;
-      --accent-dim:  rgba(74,124,247,0.15);
-      --accent-glow: rgba(74,124,247,0.22);
-      --sans:        'Inter', system-ui, -apple-system, sans-serif;
-      --mono:        'JetBrains Mono', 'Fira Code', monospace;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ─── NAV ─── */
-    nav {
-      position: fixed;
-      inset: 0 0 auto;
-      z-index: 100;
-      height: 60px;
-      padding: 0 max(24px, calc((100vw - 1140px) / 2));
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid transparent;
-      transition: background 300ms, border-color 300ms, backdrop-filter 300ms;
-    }
-    nav.scrolled {
-      background: rgba(7,7,11,0.88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-color: var(--border);
-    }
-    .nav-name {
-      font-size: 0.875rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      text-decoration: none;
-    }
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
-    .nav-links a {
-      color: var(--text-2);
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: color 180ms;
-    }
-    .nav-links a:hover { color: var(--text); }
-
-    /* ─── SHARED LAYOUT ─── */
-    section {
-      padding: 110px max(24px, calc((100vw - 1140px) / 2));
-    }
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-    }
-    .section-label {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-    .section-title {
-      font-size: clamp(1.7rem, 3.2vw, 2.4rem);
-      font-weight: 700;
-      letter-spacing: -0.035em;
-      line-height: 1.15;
-      margin-bottom: 52px;
-    }
-
-    /* ─── HERO ─── */
-    #hero {
-      min-height: 100svh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 100px;
-      position: relative;
-      overflow: hidden;
-    }
-    #hero::before {
-      content: '';
-      position: absolute;
-      top: -220px; left: -180px;
-      width: 680px; height: 680px;
-      background: radial-gradient(circle, rgba(74,124,247,0.07) 0%, transparent 68%);
-      pointer-events: none;
-    }
-    #hero::after {
-      content: '';
-      position: absolute;
-      bottom: -100px; right: -100px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(124,58,237,0.05) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-pre {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--accent);
-      letter-spacing: 0.06em;
-      margin-bottom: 18px;
-      opacity: 0;
-      animation: fadeUp 0.6s 0.1s ease forwards;
-    }
-    .hero-name {
-      font-size: clamp(3rem, 8vw, 6.5rem);
-      font-weight: 700;
-      letter-spacing: -0.045em;
-      line-height: 1.0;
-      margin-bottom: 18px;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.2s ease forwards;
-    }
-    .hero-title {
-      font-size: clamp(1rem, 1.8vw, 1.2rem);
-      color: var(--text-2);
-      font-weight: 400;
-      max-width: 560px;
-      line-height: 1.7;
-      margin-bottom: 32px;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.35s ease forwards;
-    }
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 44px;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.48s ease forwards;
-    }
-    .badge {
-      padding: 5px 14px;
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      font-size: 0.72rem;
-      font-family: var(--mono);
-      color: var(--text-2);
-      background: var(--bg-surface);
-    }
-    .badge.hi {
-      border-color: rgba(74,124,247,0.45);
-      color: var(--accent);
-      background: var(--accent-dim);
-    }
-    .hero-ctas {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.58s ease forwards;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 10px 22px;
-      border-radius: 8px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 200ms ease;
-      border: none;
-      cursor: pointer;
-    }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover { background: #6b97ff; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(74,124,247,0.35); }
-    .btn-ghost { background: transparent; color: var(--text-2); border: 1px solid var(--border); }
-    .btn-ghost:hover { border-color: var(--border-h); color: var(--text); transform: translateY(-1px); }
-
-    .scroll-cue {
-      position: absolute;
-      bottom: 36px;
-      left: max(24px, calc((100vw - 1140px) / 2));
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      opacity: 0;
-      animation: fadeIn 1s 1.3s ease forwards;
-    }
-    .scroll-cue span {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      color: var(--text-3);
-    }
-    .scroll-line {
-      width: 32px; height: 1px;
-      background: linear-gradient(to right, var(--text-3), transparent);
-      animation: scanLine 2s ease infinite;
-    }
-
-    /* ─── ABOUT ─── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 80px;
-      align-items: start;
-    }
-    .about-text p {
-      color: var(--text-2);
-      font-size: 1rem;
-      line-height: 1.82;
-      margin-bottom: 18px;
-    }
-    .about-text p strong { color: var(--text); font-weight: 600; }
-    .about-stats { display: grid; gap: 14px; }
-    .stat-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px 22px;
-      transition: border-color 200ms;
-    }
-    .stat-card:hover { border-color: var(--border-h); }
-    .stat-number {
-      font-size: 1.9rem;
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      color: var(--text);
-      display: block;
-      font-family: var(--mono);
-    }
-    .stat-label { font-size: 0.78rem; color: var(--text-2); margin-top: 2px; }
-
-    /* ─── SKILLS ─── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-    }
-    .skill-cat {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 22px 24px;
-      transition: border-color 200ms;
-    }
-    .skill-cat:hover { border-color: var(--border-h); }
-    .skill-cat-name {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 14px;
-    }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .skill-tag {
-      padding: 3px 10px;
-      background: rgba(255,255,255,0.035);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      font-size: 0.77rem;
-      color: var(--text-2);
-    }
-
-    /* ─── TIMELINE ─── */
-    .timeline {
-      position: relative;
-      padding-left: 30px;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 8px; bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--accent) 0%, rgba(74,124,247,0.15) 60%, transparent 100%);
-    }
-    .tl-item {
-      position: relative;
-      margin-bottom: 56px;
-    }
-    .tl-item:last-child { margin-bottom: 0; }
-    .tl-item::before {
-      content: '';
-      position: absolute;
-      left: -34px; top: 7px;
-      width: 9px; height: 9px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px var(--accent-dim);
-    }
-    .tl-meta {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 4px;
-    }
-    .tl-company {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-    .tl-period {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--text-3);
-    }
-    .tl-role {
-      font-size: 0.84rem;
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 12px;
-    }
-    .tl-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-    .tl-bullets li {
-      font-size: 0.875rem;
-      color: var(--text-2);
-      padding-left: 16px;
-      position: relative;
-    }
-    .tl-bullets li::before {
-      content: '›';
-      position: absolute;
-      left: 0;
-      color: var(--text-3);
-    }
-
-    /* ─── PROJECTS ─── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 18px;
-    }
-    .proj-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 26px 28px;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      transition: all 240ms ease;
-    }
-    .proj-card:hover {
-      border-color: rgba(74,124,247,0.35);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-    }
-    .proj-icon {
-      width: 38px; height: 38px;
-      border-radius: 9px;
-      background: var(--accent-dim);
-      border: 1px solid rgba(74,124,247,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.15rem;
-      margin-bottom: 16px;
-    }
-    .proj-name {
-      font-family: var(--mono);
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-    .proj-desc {
-      font-size: 0.83rem;
-      color: var(--text-2);
-      line-height: 1.65;
-      margin-bottom: 18px;
-      flex: 1;
-    }
-    .proj-stack { display: flex; flex-wrap: wrap; gap: 6px; }
-    .stack-tag {
-      padding: 2px 8px;
-      font-size: 0.68rem;
-      font-family: var(--mono);
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      color: var(--text-3);
-    }
-
-    /* ─── CONTACT ─── */
-    #contact { text-align: center; }
-    #contact .section-title { margin-bottom: 12px; }
-    .contact-sub {
-      color: var(--text-2);
-      font-size: 0.95rem;
-      max-width: 480px;
-      margin: 0 auto 44px;
-      line-height: 1.7;
-    }
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-    .contact-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 7px;
-      padding: 22px 28px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      text-decoration: none;
-      color: var(--text-2);
-      font-size: 0.85rem;
-      min-width: 140px;
-      transition: all 200ms ease;
-    }
-    .contact-card:hover {
-      border-color: var(--border-h);
-      color: var(--text);
-      transform: translateY(-2px);
-    }
-    .contact-card .c-icon { font-size: 1.3rem; }
-    .contact-card strong { font-size: 0.85rem; color: var(--text); }
-    .contact-card .c-handle { font-size: 0.72rem; font-family: var(--mono); color: var(--text-3); }
-
-    /* ─── FOOTER ─── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 26px max(24px, calc((100vw - 1140px) / 2));
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    footer p {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--text-3);
-    }
-
-    /* ─── REVEAL ─── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.58s ease, transform 0.58s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* ─── KEYFRAMES ─── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn { to { opacity: 1; } }
-    @keyframes scanLine {
-      0%, 100% { opacity: 0.35; }
-      50%       { opacity: 0.9; }
-    }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 860px) {
-      section { padding: 80px 20px; }
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .about-stats { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      footer { flex-direction: column; text-align: center; }
-      .about-stats { grid-template-columns: repeat(2, 1fr); }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Antigravity Theme CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav id="nav">
-    <a class="nav-name" href="#hero">Mohamed Soubhi</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Stack</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <!-- =========================================================================
+       1. Top Sticky Navigation Bar
+       ========================================================================= -->
+  <header class="site-nav">
+    <div class="container nav-wrapper">
+      <div class="nav-actions">
+        <button id="toggleAllBtn" class="btn-pill" title="Expand or Collapse All Cards">
+          <span>⊞</span> Expand All
+        </button>
 
-  <!-- ─── HERO ─── -->
-  <section id="hero">
-    <p class="hero-pre">// automotive · embedded · graph data science</p>
-    <h1 class="hero-name">Mohamed<br>Soubhi</h1>
-    <p class="hero-title">
-      Senior Automotive Software Engineer — 11+ years in safety-critical embedded systems,
-      now applying graph data science to automotive software validation.
-    </p>
-    <div class="hero-badges">
-      <span class="badge hi">AUTOSAR</span>
-      <span class="badge hi">ASIL B</span>
-      <span class="badge hi">Neo4j · Graph DS</span>
-      <span class="badge">ISO 26262</span>
-      <span class="badge">ASPICE L4</span>
-      <span class="badge">ARM Cortex-M7</span>
-      <span class="badge">Madrid, Spain · EU Permit</span>
-    </div>
-    <div class="hero-ctas">
-      <a href="https://www.linkedin.com/in/mohamed-soubhi" target="_blank" rel="noopener" class="btn btn-primary">LinkedIn ↗</a>
-      <a href="https://github.com/mohamed-soubhi" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
-      <a href="mailto:eng.mohamed.soubhi@gmail.com" class="btn btn-ghost">Email</a>
-    </div>
-    <div class="scroll-cue">
-      <span>SCROLL</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
+        <button onclick="window.print()" class="btn-pill" title="Print or Save PDF">
+          <span>🖨️</span> Print / PDF
+        </button>
 
-  <hr class="divider">
-
-  <!-- ─── ABOUT ─── -->
-  <section id="about">
-    <p class="section-label reveal">01 / about</p>
-    <h2 class="section-title reveal">Where embedded safety<br>meets data intelligence.</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p class="reveal">
-          I've spent 11+ years building automotive embedded software at <strong>Valeo</strong>,
-          <strong>TTTech Auto</strong>, and <strong>Concentrio AG</strong> — across powertrain,
-          safety, and advanced driver-assistance domains.
-        </p>
-        <p class="reveal">
-          At Concentrio, I moved into territory very few engineers occupy: applying
-          <strong>Graph Data Science with Neo4j</strong> to validate signal flows in automotive software.
-          I build Python-powered analysis pipelines that solve quality problems traditional
-          toolchains can't address.
-        </p>
-        <p class="reveal">
-          My value is the intersection — I speak AUTOSAR, MISRA-C, and ASIL B at depth,
-          and I can build the <strong>data layer</strong> that closes the loop between code and
-          vehicle safety. EU Work Permit holder, based in Madrid.
-        </p>
-      </div>
-      <div class="about-stats">
-        <div class="stat-card reveal">
-          <span class="stat-number">11+</span>
-          <span class="stat-label">years automotive embedded</span>
-        </div>
-        <div class="stat-card reveal">
-          <span class="stat-number">3</span>
-          <span class="stat-label">Tier-1 automotive companies</span>
-        </div>
-        <div class="stat-card reveal">
-          <span class="stat-number">ASIL&nbsp;B</span>
-          <span class="stat-label">ISO 26262 functional safety</span>
-        </div>
-        <div class="stat-card reveal">
-          <span class="stat-number">L4</span>
-          <span class="stat-label">ASPICE process level</span>
-        </div>
+        <button id="themeToggle" class="btn-pill primary" title="Switch Theme (Dark / Light)">
+          <span class="theme-icon">☀️</span>
+          <span class="theme-text">Light</span>
+        </button>
       </div>
     </div>
-  </section>
+  </header>
 
-  <hr class="divider">
+  <main class="container">
+    
+    <!-- =========================================================================
+         2. Hero Profile & Metrics Header
+         ========================================================================= -->
+    <section class="hero-section">
+      <div class="hero-header">
+        <h1 class="hero-name">Mohamed Soubhi</h1>
+        <div class="hero-subtitle">Tech Lead @ Concentrio</div>
+        <div class="hero-person-title">Tech Lead &amp; Embedded Architect · AUTOSAR, ASIL B &amp; Graph Data Science</div>
 
-  <!-- ─── SKILLS ─── -->
-  <section id="skills">
-    <p class="section-label reveal">02 / stack</p>
-    <h2 class="section-title reveal">Technical skills.</h2>
-    <div class="skills-grid">
-      <div class="skill-cat reveal">
-        <p class="skill-cat-name">Embedded &amp; AUTOSAR</p>
-        <div class="skill-tags">
-          <span class="skill-tag">C</span>
-          <span class="skill-tag">AUTOSAR BSW/RTE/ASW</span>
-          <span class="skill-tag">ARM Cortex-M7</span>
-          <span class="skill-tag">AURIX TC3xx</span>
-          <span class="skill-tag">UDS / ISO 14229</span>
-          <span class="skill-tag">MISRA-C</span>
+        <!-- Executive Stat Strip -->
+        <div class="hero-stat-strip">
+          <div class="stat-item">
+            <span class="stat-icon">⚡</span>
+            <span class="stat-highlight">13+ Years</span>
+            <span class="stat-detail">Automotive &amp; Embedded</span>
+          </div>
+          <span class="stat-sep">/</span>
+          <div class="stat-item">
+            <span class="stat-icon">👥</span>
+            <span class="stat-highlight">Tech Lead</span>
+            <span class="stat-detail">Mentorship &amp; Planning</span>
+          </div>
+          <span class="stat-sep">/</span>
+          <div class="stat-item">
+            <span class="stat-icon">🛡️</span>
+            <span class="stat-highlight">ASIL B &amp; L4</span>
+            <span class="stat-detail">Functional Safety &amp; ASPICE</span>
+          </div>
+          <span class="stat-sep">/</span>
+          <div class="stat-item">
+            <span class="stat-icon">🚀</span>
+            <span class="stat-highlight">~60% Faster</span>
+            <span class="stat-detail">Code Quality Review &amp; DVC</span>
+          </div>
         </div>
       </div>
-      <div class="skill-cat reveal">
-        <p class="skill-cat-name">Functional Safety</p>
-        <div class="skill-tags">
-          <span class="skill-tag">ISO 26262</span>
-          <span class="skill-tag">ASIL B</span>
-          <span class="skill-tag">ASPICE L4</span>
-          <span class="skill-tag">Aurix Safety Library</span>
-          <span class="skill-tag">SafeWDGM · SafeTSTm</span>
+    </section>
+
+    <!-- =========================================================================
+         3. Timeline Rail & Career Nodes
+         ========================================================================= -->
+    <div class="timeline-wrapper">
+      <div class="timeline-rail"></div>
+
+      <!-- ENTRY 1: CONCENTRIO.IO / BMW -->
+      <div class="timeline-entry" data-categories="automotive datascience">
+        <div class="entry-year-col">
+          <div class="entry-year-label" style="color: var(--accent-neon);">2023</div>
+        </div>
+        <div class="entry-node-dot" style="--accent-card: var(--accent-neon);"></div>
+        <div class="timeline-card t-emerald" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="company-logo-badge">
+                <img src="https://concentrio.io/wp-content/uploads/2021/06/logo-concentrio-gey.svg" alt="Concentrio Logo" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerText='C';">
+              </div>
+              <div class="company-meta-block">
+                <div class="company-name-row">
+                  <span class="company-name">Concentrio.io</span>
+                  <span class="role-title">Technical Lead &amp; Software Engineer — AUTOSAR &amp; Graph Data Science</span>
+                </div>
+                <div class="card-tags">
+                  <span class="tag highlight">BMW Projects</span>
+                  <span class="tag">Jun 2023 – Jun 2026</span>
+                  <span class="tag">Madrid, Spain</span>
+                  <span class="tag">Neo4j Graph DS</span>
+                  <span class="tag">DVC MLOps</span>
+                  <span class="tag">Team Lead (4 Engineers)</span>
+                  <span class="tag">Docker</span>
+                </div>
+              </div>
+            </div>
+            <div class="expand-toggle">+</div>
+          </div>
+
+          <div class="card-panel">
+            <div class="panel-content">
+              <div class="section-subtitle">🎯 Key Projects &amp; Innovation Focus</div>
+              <div class="subproject-grid">
+                <div class="subproject-box">
+                  <div class="subproject-title">🧠 Neo4j Graph Data Science Validation</div>
+                  <div class="subproject-desc">Designed and deployed Neo4j graph data science algorithms to validate COSI tool outputs (signal flow, dependency graphs), identifying structural flaws invisible to conventional static analysis tools.</div>
+                  <div class="subproject-chips">
+                    <span class="chip-mini">Neo4j</span><span class="chip-mini">Cypher</span><span class="chip-mini">Graph Algorithms</span><span class="chip-mini">COSI Signal Flow</span>
+                  </div>
+                </div>
+
+                <div class="subproject-box">
+                  <div class="subproject-title">⚡ Results Versioning &amp; DVC Pipeline</div>
+                  <div class="subproject-desc">Independently architected a results-persistence and versioning workflow aligned with DVC methodology, enabling recursive &amp; longitudinal analysis across runs and reducing turnaround time by ~60%.</div>
+                  <div class="subproject-chips">
+                    <span class="chip-mini">DVC</span><span class="chip-mini">Data Pipelines</span><span class="chip-mini">~60% Speedup</span><span class="chip-mini">Reproducibility</span>
+                  </div>
+                </div>
+
+                <div class="subproject-box">
+                  <div class="subproject-title">🛠️ Validation Automation Tooling</div>
+                  <div class="subproject-desc">Engineered an internal automation tool enabling non-technical staff to execute complex analysis runs and collect outputs independently, removing a major bottleneck and freeing engineering capacity.</div>
+                  <div class="subproject-chips">
+                    <span class="chip-mini">Python</span><span class="chip-mini">CLI / Automation</span><span class="chip-mini">Process Democratization</span>
+                  </div>
+                </div>
+
+                <div class="subproject-box">
+                  <div class="subproject-title">🔍 AUTOSAR Deep Quality Reviews</div>
+                  <div class="subproject-desc">Conducted deep automotive software reviews across BSW/RTE/ASW layers and proprietary Code Analysis toolchains to pinpoint architecture-level validation issues.</div>
+                  <div class="subproject-chips">
+                    <span class="chip-mini">AUTOSAR BSW</span><span class="chip-mini">RTE</span><span class="chip-mini">ASW</span><span class="chip-mini">Code Analysis</span>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="content-divider">
+
+              <div class="section-subtitle">📋 Key Responsibilities &amp; Impact</div>
+              <ul class="resp-list">
+                <li><strong>Embedded Code Quality &amp; Architecture Reviews:</strong> Leveraged deep AUTOSAR (BSW/RTE/ASW) and embedded C/C++ domain expertise to conduct thorough software quality reviews, uncover architecture-level defects, and validate critical ECU communication signal flows.</li>
+                <li><strong>Technical Leadership &amp; Team Mentorship:</strong> Mentored new engineers, provided technical consulting and sprint planning, and spearheaded the transition to Jira Scrum/Agile workflows, driving high team velocity across complex automotive analysis projects (BMW).</li>
+                <li><strong>Graph Data Science &amp; Structural Validation:</strong> Deployed Neo4j graph algorithms and Cypher queries to model complex vehicle software topologies, validating dependency graphs and pinpointing structural bugs missed by conventional static analysis.</li>
+                <li><strong>MLOps Automation &amp; DVC Pipeline:</strong> Designed a results-persistence workflow aligned with DVC methodology (reducing end-to-end analysis turnaround time by ~60%) and built custom Python CLI tooling allowing non-technical colleagues to operate validation runs independently.</li>
+                <li><strong>Data Visualization &amp; Containerization:</strong> Engineered customer-facing technical and executive reports using Python (Pandas, NumPy, Matplotlib); containerized all validation pipelines with Docker for rapid developer onboarding and deterministic reproduction.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="skill-cat reveal">
-        <p class="skill-cat-name">Data Science</p>
-        <div class="skill-tags">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Neo4j</span>
-          <span class="skill-tag">Graph Data Science</span>
-          <span class="skill-tag">Pandas</span>
-          <span class="skill-tag">Scikit-learn</span>
-          <span class="skill-tag">Keras</span>
+
+      <!-- ENTRY 2: TRUSTMOTION -->
+      <div class="timeline-entry" data-categories="automotive safety">
+        <div class="entry-year-col">
+          <div class="entry-year-label" style="color: var(--accent-cyan);">2021</div>
+        </div>
+        <div class="entry-node-dot" style="--accent-card: var(--accent-cyan);"></div>
+        <div class="timeline-card t-cyan" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="company-logo-badge">
+                <img src="https://www.trustmotion.com/themes/custom/tttech/logo.svg" alt="TrustMotion Logo" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerText='TM';">
+              </div>
+              <div class="company-meta-block">
+                <div class="company-name-row">
+                  <span class="company-name">TrustMotion</span>
+                  <span class="role-title">Safety Embedded Software Engineer — Motionwise</span>
+                </div>
+                <div class="card-tags">
+                  <span class="tag highlight">🏆 Zero Defects Milestone</span>
+                  <span class="tag">HIP32G Team</span>
+                  <span class="tag">Jul 2021 – Jun 2023</span>
+                  <span class="tag">Madrid, Spain</span>
+                  <span class="tag">ISO 26262</span>
+                  <span class="tag">ASPICE Level 4</span>
+                  <span class="tag">ARM Cortex-M7</span>
+                  <span class="tag">Trace32</span>
+                  <span class="tag">VectorCAST</span>
+                  <span class="tag">Gliwa T1</span>
+                </div>
+              </div>
+            </div>
+            <div class="expand-toggle">+</div>
+          </div>
+
+          <div class="card-panel">
+            <div class="panel-content">
+              <div class="section-subtitle">🎯 Technical Highlights</div>
+              <div class="subproject-grid">
+                <div class="subproject-box">
+                  <div class="subproject-title">🏎️ ARM Cortex-M7 Multi-Core V-Cycle</div>
+                  <div class="subproject-desc">Embedded C development on ARM Cortex-M7 multi-core safety microcontrollers, executing the complete V-cycle from requirements breakdown down to integration testing and Lauterbach Trace32 in-circuit hardware debugging on target boards.</div>
+                  <div class="subproject-chips">
+                    <span class="chip-mini">ARM Cortex-M7</span><span class="chip-mini">Trace32</span><span class="chip-mini">V-Cycle</span><span class="chip-mini">VectorCAST Unit Tests</span>
+                  </div>
+                </div>
+
+                <div class="subproject-box">
+                  <div class="subproject-title">⏱️ Gliwa T1 Timing &amp; CPU Optimization</div>
+                  <div class="subproject-desc">Integrated Gliwa T1 profiling tool to capture and analyze CPU load, jitter, and execution timing across multi-core tasks, enabling data-driven task scheduling optimization and real-time determinism.</div>
+                  <div class="subproject-chips">
+                    <span class="chip-mini">Gliwa T1</span><span class="chip-mini">CPU Profiling</span><span class="chip-mini">Real-Time Scheduling</span><span class="chip-mini">Zero Defects</span>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="content-divider">
+
+              <div class="section-subtitle">📋 Key Responsibilities &amp; Quality Adherence</div>
+              <ul class="resp-list">
+                <li><strong>Zero Defects &amp; ISO 26262 Safety:</strong> Honed competencies in safety-critical embedded software engineering complying with <strong>ISO 26262</strong> functional safety standards, where the team celebrated a <strong>Zero Defects Milestone</strong> showcasing unwavering commitment to reliability.</li>
+                <li><strong>ASPICE Level 4 Certification:</strong> Contributed directly to achieving ASPICE Level 4 certification through disciplined documentation, rigorous traceability, and process adherence.</li>
+                <li><strong>Unit Testing &amp; MISRA-C:</strong> Conducted unit testing via <strong>VectorCAST</strong>, analyzed and fixed MISRA-C violations using <strong>QAC static analysis</strong>, and designed testing strategies.</li>
+                <li><strong>Scrum/Agile Collaboration:</strong> Delivered features using Scrum Agile methodology; managed centralized issue tracking with <strong>Jira</strong>, knowledge base with <strong>Confluence</strong>, and version control with <strong>Bitbucket/Git</strong>.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="skill-cat reveal">
-        <p class="skill-cat-name">Vector &amp; Debug Tools</p>
-        <div class="skill-tags">
-          <span class="skill-tag">Lauterbach Trace32</span>
-          <span class="skill-tag">CANalyzer</span>
-          <span class="skill-tag">Davinci Configurator</span>
-          <span class="skill-tag">VectorCAST</span>
-          <span class="skill-tag">Gliwa T1 Profiler</span>
-          <span class="skill-tag">QAC · Polyspace</span>
+
+      <!-- ENTRY 3: VALEO -->
+      <div class="timeline-entry" data-categories="automotive safety">
+        <div class="entry-year-col">
+          <div class="entry-year-label" style="color: var(--accent-amber);">2017</div>
+        </div>
+        <div class="entry-node-dot" style="--accent-card: var(--accent-amber);"></div>
+        <div class="timeline-card t-amber" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="company-logo-badge">
+                <img src="https://www.valeo.com/wp-content/themes/valeo/images/logo.png" alt="Valeo Logo" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerText='V';">
+              </div>
+              <div class="company-meta-block">
+                <div class="company-name-row">
+                  <span class="company-name">Valeo</span>
+                  <span class="role-title">Senior Embedded Software Engineer — Powertrain Systems (4 yrs 7 mos)</span>
+                </div>
+                <div class="card-tags">
+                  <span class="tag highlight">🏆 Zero Defects Reward</span>
+                  <span class="tag">Jan 2017 – Jul 2021</span>
+                  <span class="tag">Cairo, Egypt</span>
+                  <span class="tag">ISO 26262 (ASIL B)</span>
+                  <span class="tag">DCDC &amp; EDC Teams</span>
+                  <span class="tag">AUTOSAR (BSW/RTE)</span>
+                  <span class="tag">AURIX TC3xx</span>
+                  <span class="tag">Davinci &amp; CANalyzer</span>
+                  <span class="tag">CAPL Scripting</span>
+                </div>
+              </div>
+            </div>
+            <div class="expand-toggle">+</div>
+          </div>
+
+          <div class="card-panel">
+            <div class="panel-content">
+              <div class="section-subtitle">🎯 Progressive Team Roles &amp; Technical Highlights</div>
+              <div class="subproject-grid">
+                <div class="subproject-box">
+                  <div class="subproject-title">🛡️ DCDC Gen Team: ISO 26262 (ASIL B) Safety Modules (2020 – 2021)</div>
+                  <div class="subproject-desc">Senior Embedded SW Engineer. Upgraded and integrated all safety modules (<code>Safetymech</code>, <code>SafeDGM</code>, <code>SafeWDGM</code>, <code>SafeTSTm</code>) per <strong>ISO 26262 (ASIL B)</strong> and AURIX Safety Library requirements. Reconfigured MBU, BPU, ECCFLASH &amp; SMU; updated SafetLib and startup tests; authored safety integration plans.</div>
+                  <div class="subproject-chips">
+                    <span class="chip-mini">ISO 26262 (ASIL B)</span><span class="chip-mini">AURIX Safety Library</span><span class="chip-mini">SMU / ECCFLASH</span><span class="chip-mini">RTE Config</span>
+                  </div>
+                </div>
+
+                <div class="subproject-box">
+                  <div class="subproject-title">🔌 DCDC PSA Team: EOL Tooling &amp; UDS Diagnostics (2018 – 2020)</div>
+                  <div class="subproject-desc">Senior Embedded SW Engineer. Led development, review, and unit testing of End-of-Line (EOL) calibration &amp; testing product in production phase (interfacing UDS, DIO, ADC, drivers). Integrated AUTOSAR Diagnostic Stack (ISO 14229-1 / UDS) and Complex Drivers via Vector Davinci &amp; CANalyzer.</div>
+                  <div class="subproject-chips">
+                    <span class="chip-mini">EOL Tooling</span><span class="chip-mini">ISO 14229 (UDS)</span><span class="chip-mini">Davinci Configurator</span><span class="chip-mini">CDD Startup Code</span>
+                  </div>
+                </div>
+
+                <div class="subproject-box">
+                  <div class="subproject-title">⚡ PTS-PEL / EDC Team: Electric Compressors &amp; CAPL (2017 – 2018)</div>
+                  <div class="subproject-desc">Embedded SW Engineer. Integrated complex AUTOSAR diagnostic components for Electrically Driven Compressors (EDC). Generated automated UDS test-cases on Vector tools using <strong>CAPL code</strong>, integrated Complex Drivers (CPWM), and ran Polyspace verification.</div>
+                  <div class="subproject-chips">
+                    <span class="chip-mini">CAPL Scripting</span><span class="chip-mini">CANalyzer</span><span class="chip-mini">Polyspace</span><span class="chip-mini">CPWM Drivers</span>
+                  </div>
+                </div>
+
+                <div class="subproject-box">
+                  <div class="subproject-title">🤖 R&amp;D Automation &amp; Microcontroller Bring-Up (2017)</div>
+                  <div class="subproject-desc">Built Python &amp; JavaScript R&amp;D automation tools for code generation. Completed intensive AURIX hardware bring-up (GPIO, PWM, SPI, VADC drivers, OIL configuration) and SW test design (OSEK multitasking, QRQC).</div>
+                  <div class="subproject-chips">
+                    <span class="chip-mini">Python / JS Tooling</span><span class="chip-mini">Code Generation</span><span class="chip-mini">AURIX Peripherals</span><span class="chip-mini">OSEK</span>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="content-divider">
+
+              <div class="section-subtitle">📋 Key Responsibilities &amp; Leadership</div>
+              <ul class="resp-list">
+                <li><strong>Zero Defects Recognition:</strong> Awarded the team <strong>Zero Defects Reward</strong> for flawless software release quality and strict adherence to automotive safety benchmarks.</li>
+                <li><strong>Requirements Traceability &amp; Coaching:</strong> Led and trained cross-functional engineering teams in executing end-to-end requirements traceability matrix workflows via <strong>Reqtify</strong>; supported ASPICE audit compliance.</li>
+                <li><strong>Knowledge Sharing:</strong> Delivered technical training and knowledge-sharing sessions across departments covering CAN communication and RTE architecture configuration.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="skill-cat reveal">
-        <p class="skill-cat-name">DevOps &amp; Infra</p>
-        <div class="skill-tags">
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">Git · Bitbucket</span>
-          <span class="skill-tag">Jira · Confluence</span>
-          <span class="skill-tag">Reqtify</span>
-          <span class="skill-tag">DVC</span>
+
+      <!-- ENTRY 4: BIOBUSINESS -->
+      <div class="timeline-entry" data-categories="safety">
+        <div class="entry-year-col">
+          <div class="entry-year-label" style="color: var(--accent-teal);">2015</div>
+        </div>
+        <div class="entry-node-dot" style="--accent-card: var(--accent-teal);"></div>
+        <div class="timeline-card t-teal" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="company-logo-badge">
+                <img src="https://www.biobusiness-eg.com/frontend/bionew/img/logo.png" alt="BioBusiness Logo" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerText='BB';">
+              </div>
+              <div class="company-meta-block">
+                <div class="company-name-row">
+                  <span class="company-name">BioBusiness</span>
+                  <span class="role-title">Embedded Software Engineer — Medical Devices (1 yr 11 mos)</span>
+                </div>
+                <div class="card-tags">
+                  <span class="tag highlight">STM32F4 Platform</span>
+                  <span class="tag">Feb 2015 – Dec 2016</span>
+                  <span class="tag">Cairo, Egypt</span>
+                  <span class="tag">Medical Devices</span>
+                  <span class="tag">V-Cycle Documentation</span>
+                  <span class="tag">SCADA Telemetry</span>
+                </div>
+              </div>
+            </div>
+            <div class="expand-toggle">+</div>
+          </div>
+
+          <div class="card-panel">
+            <div class="panel-content">
+              <div class="section-subtitle">🩺 Medical Device Products &amp; Innovations</div>
+              <div class="subproject-grid">
+                <div class="subproject-box">
+                  <div class="subproject-title">🩸 MiraClot (Coagulation Analyzer)</div>
+                  <div class="subproject-desc">Led requirements detection, system architecture, and embedded C firmware design for optical sensing channels and diagnostic assays on STM32F4.</div>
+                  <div class="subproject-chips"><span class="chip-mini">STM32F4</span><span class="chip-mini">Optical Sensing</span><span class="chip-mini">System Design</span><span class="chip-mini">V-Cycle</span></div>
+                </div>
+
+                <div class="subproject-box">
+                  <div class="subproject-title">📊 BioMon (Patient Monitor)</div>
+                  <div class="subproject-desc">Engineered ECG firmware detection upgrades, sensor signal filtering algorithms, and bug resolution for real-time multiparameter patient monitoring.</div>
+                  <div class="subproject-chips"><span class="chip-mini">ECG Detection</span><span class="chip-mini">Patient Monitoring</span><span class="chip-mini">Firmware Testing</span></div>
+                </div>
+
+                <div class="subproject-box">
+                  <div class="subproject-title">☁️ Inspector &amp; BBI Firmware Tester</div>
+                  <div class="subproject-desc">Developed cloud-based SCADA telemetry firmware and built the custom automated <strong>BBI Firmware Tester</strong> for automated quality verification of BBI hardware components.</div>
+                  <div class="subproject-chips"><span class="chip-mini">BBI Tester</span><span class="chip-mini">SCADA Telemetry</span><span class="chip-mini">Verification</span></div>
+                </div>
+              </div>
+
+              <hr class="content-divider">
+              <div class="section-subtitle">📋 Key Responsibilities</div>
+              <ul class="resp-list">
+                <li>Covered the full system engineering lifecycle from biomedical research and electronic circuit analysis to firmware implementation and verification.</li>
+                <li>Authored comprehensive software documentation in compliance with standard medical V-Cycle engineering processes.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="skill-cat reveal">
-        <p class="skill-cat-name">Methodologies</p>
-        <div class="skill-tags">
-          <span class="skill-tag">Scrum / Agile</span>
-          <span class="skill-tag">V-Model</span>
-          <span class="skill-tag">TDD</span>
-          <span class="skill-tag">ASPICE</span>
-          <span class="skill-tag">FMEA</span>
+
+      <!-- ENTRY 5: WISSAM ELECTRONICS -->
+      <div class="timeline-entry" data-categories="safety">
+        <div class="entry-year-col">
+          <div class="entry-year-label" style="color: var(--accent-violet);">2014</div>
+        </div>
+        <div class="entry-node-dot" style="--accent-card: var(--accent-violet);"></div>
+        <div class="timeline-card t-violet" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="company-logo-badge">
+                <img src="https://wissameg.com/wp-content/uploads/2025/12/wissam-logo.png" alt="Wissam Electronics Logo" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerText='WE';">
+              </div>
+              <div class="company-meta-block">
+                <div class="company-name-row">
+                  <span class="company-name">Wissam Electronics Co</span>
+                  <span class="role-title">Firmware &amp; Embedded Engineer — Industrial Electronics (11 mos)</span>
+                </div>
+                <div class="card-tags">
+                  <span class="tag highlight">PIC18F ➔ PIC32 Migration</span>
+                  <span class="tag">Mar 2014 – Jan 2015</span>
+                  <span class="tag">6th of October City, Egypt</span>
+                  <span class="tag">Digital Circuits</span>
+                  <span class="tag">MPLAB / C</span>
+                </div>
+              </div>
+            </div>
+            <div class="expand-toggle">+</div>
+          </div>
+
+          <div class="card-panel">
+            <div class="panel-content">
+              <div class="section-subtitle">⚙️ Technical Highlights</div>
+              <div class="subproject-grid">
+                <div class="subproject-box">
+                  <div class="subproject-title">🔌 PIC18F &amp; PIC32 Firmware Migration</div>
+                  <div class="subproject-desc">Designed and upgraded core company embedded firmware from 8-bit PIC18F to 32-bit PIC32 microcontrollers in C (MPLAB IDE), optimizing performance and memory footprint.</div>
+                  <div class="subproject-chips"><span class="chip-mini">PIC32</span><span class="chip-mini">PIC18F</span><span class="chip-mini">MPLAB</span><span class="chip-mini">Firmware Migration</span></div>
+                </div>
+
+                <div class="subproject-box">
+                  <div class="subproject-title">💡 Digital Circuit Design &amp; Moving Displays</div>
+                  <div class="subproject-desc">Created custom digital circuits and electronic systems for industrial automation and electronic moving message displays.</div>
+                  <div class="subproject-chips"><span class="chip-mini">Digital Design</span><span class="chip-mini">Moving Displays</span><span class="chip-mini">Hardware Bring-Up</span></div>
+                </div>
+              </div>
+
+              <hr class="content-divider">
+              <ul class="resp-list">
+                <li>Created new applications and embedded systems from research through schematic capture and production board testing.</li>
+                <li>Interfaced hardware peripherals (UART, SPI, I2C, Timers, ADC, GPIO) and conducted benchtop debugging.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- ENTRY 6: EARLY CAREER INTERNSHIPS -->
+      <div class="timeline-entry" data-categories="education safety">
+        <div class="entry-year-col">
+          <div class="entry-year-label" style="color: var(--accent-cyan);">2013</div>
+        </div>
+        <div class="entry-node-dot" style="--accent-card: var(--accent-cyan);"></div>
+        <div class="timeline-card t-cyan" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="company-logo-badge" style="background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.3);">
+                <span style="font-size: 22px;">⚡</span>
+              </div>
+              <div class="company-meta-block">
+                <div class="company-name-row">
+                  <span class="company-name">Early Engineering Internships &amp; Practical Training</span>
+                  <span class="role-title">Driver Development, Verilog HDL &amp; Hardware Manufacturing</span>
+                </div>
+                <div class="card-tags">
+                  <span class="tag highlight">Foundational Training</span>
+                  <span class="tag">El Sewedy Electro-meter</span>
+                  <span class="tag">Swiftronix</span>
+                  <span class="tag">Banha Katron</span>
+                </div>
+              </div>
+            </div>
+            <div class="expand-toggle">+</div>
+          </div>
+
+          <div class="card-panel">
+            <div class="panel-content">
+              <div class="section-subtitle">🏢 Practical Industry Training Milestones</div>
+              <div class="subproject-grid">
+                <div class="subproject-box">
+                  <div class="subproject-title">⚡ El Sewedy Electro-meter Egypt (Sep – Oct 2013)</div>
+                  <div class="subproject-desc">Trainee Engineer. Developed device drivers in C language programming and observed end-to-end software lifecycles in high-volume industrial meter production.</div>
+                  <div class="subproject-chips"><span class="chip-mini">C Drivers</span><span class="chip-mini">Smart Meters</span><span class="chip-mini">Industrial Lifecycle</span></div>
+                </div>
+
+                <div class="subproject-box">
+                  <div class="subproject-title">🔬 Swiftronix (Aug – Oct 2010)</div>
+                  <div class="subproject-desc">Trainee Engineer. Studied Verilog HDL digital logic and successfully deployed an SPI bus controller driver using Verilog HDL.</div>
+                  <div class="subproject-chips"><span class="chip-mini">Verilog HDL</span><span class="chip-mini">SPI Controller</span><span class="chip-mini">Digital Logic</span></div>
+                </div>
+
+                <div class="subproject-box">
+                  <div class="subproject-title">🏭 Banha Industry Katron (Aug – Oct 2006)</div>
+                  <div class="subproject-desc">Student Intern. Hands-on industrial training in PCB fabrication, SMD assembly techniques, HW design, and testing procedures.</div>
+                  <div class="subproject-chips"><span class="chip-mini">PCB Design</span><span class="chip-mini">SMD Assembly</span><span class="chip-mini">HW Testing</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENTRY 7: ACADEMIC DEGREE -->
+      <div class="timeline-entry" data-categories="education">
+        <div class="entry-year-col">
+          <div class="entry-year-label" style="color: var(--accent-gold);">2010</div>
+        </div>
+        <div class="entry-node-dot diamond"></div>
+        <div class="timeline-card t-gold" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="company-logo-badge">
+                <img src="https://hti.edu.eg/site/img/hti%20logo.jpeg" alt="HTI Logo" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerText='🎓';">
+              </div>
+              <div class="company-meta-block">
+                <div class="company-name-row">
+                  <span class="company-name">Higher Technological Institute (HTI)</span>
+                  <span class="role-title">B.Sc. Electrical Engineering &amp; Computers Department</span>
+                </div>
+                <div class="card-tags">
+                  <span class="tag highlight" style="color: var(--accent-gold); border-color: var(--accent-gold);">Graduated with Honours</span>
+                  <span class="tag">GPA: 3.10 / 4.00 (Very Good)</span>
+                  <span class="tag">Image Processing &amp; Robotics</span>
+                </div>
+              </div>
+            </div>
+            <div class="expand-toggle">+</div>
+          </div>
+
+          <div class="card-panel">
+            <div class="panel-content">
+              <div class="education-box">
+                <div class="edu-icon">📜</div>
+                <div class="edu-info">
+                  <h4>Bachelor of Science in Electrical Engineering &amp; Computers</h4>
+                  <p>
+                    Graduated with Honours (Grade: Very Good with Honours, GPA 3.10/4.00).<br>
+                    <strong>Graduation Project:</strong> <em>Robot Motion Control Using Image Processing</em> — real-time object tracking and robotic actuator guidance implemented in MATLAB (<strong>Project Grade: Excellent</strong>).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENTRY 8: CERTIFICATIONS & CONTINUOUS LEARNING -->
+      <div class="timeline-entry" data-categories="education datascience">
+        <div class="entry-year-col">
+          <div class="entry-year-label" style="color: var(--accent-rose);">2026</div>
+        </div>
+        <div class="entry-node-dot diamond" style="border-color: var(--accent-rose); --accent-card: var(--accent-rose);"></div>
+        <div class="timeline-card t-rose" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="company-logo-badge" style="background: rgba(244, 63, 94, 0.1); border-color: rgba(244, 63, 94, 0.3);">
+                <span style="font-size: 26px;">🏆</span>
+              </div>
+              <div class="company-meta-block">
+                <div class="company-name-row">
+                  <span class="company-name">Professional Certifications &amp; Continuous Learning</span>
+                  <span class="role-title">Advanced Linux, Modern C++, Data Science &amp; MLOps</span>
+                </div>
+                <div class="card-tags">
+                  <span class="tag highlight" style="color: var(--accent-rose); border-color: var(--accent-rose);">In Progress</span>
+                  <span class="tag">CU Boulder · Coursera · DataCamp · Udacity</span>
+                  <span class="tag">8+ Certifications</span>
+                </div>
+              </div>
+            </div>
+            <div class="expand-toggle">+</div>
+          </div>
+
+          <div class="card-panel">
+            <div class="panel-content">
+              <div class="section-subtitle">📜 Certified Credentials &amp; Specializations</div>
+              <div class="certs-grid">
+                <div class="cert-card">
+                  <span class="cert-year">NOV 2025 · IN PROGRESS</span>
+                  <span class="cert-name">Advanced Embedded Linux Development</span>
+                  <span class="cert-issuer">University of Colorado Boulder</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">2026 · IN PROGRESS</span>
+                  <span class="cert-name">Advance C++20 Specialization</span>
+                  <span class="cert-issuer">Coursera</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">2024 · CERTIFIED</span>
+                  <span class="cert-name">Machine Learning Engineer Track (DVC, MLOps)</span>
+                  <span class="cert-issuer">DataCamp</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">JUN 2022 – AUG 2022</span>
+                  <span class="cert-name">Machine Learning Scientist with Python</span>
+                  <span class="cert-issuer">DataCamp (Scikit-learn, Keras, Spark)</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">MAR 2021 – JUN 2021</span>
+                  <span class="cert-name">Data Analysis Professional Nanodegree</span>
+                  <span class="cert-issuer">Udacity (Pandas, NumPy, Matplotlib)</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">JUL 2021 – OCT 2021</span>
+                  <span class="cert-name">Data Analysis Nanodegree (Become a Data Scientist)</span>
+                  <span class="cert-issuer">Udacity</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">SPECIALIZATION</span>
+                  <span class="cert-name">Mastering Microcontroller with Embedded Driver Development</span>
+                  <span class="cert-issuer">Embedded Systems Academy</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">SPECIALIZATION</span>
+                  <span class="cert-name">Introduction to Embedded Machine Learning</span>
+                  <span class="cert-issuer">Edge Impulse / Coursera</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">CERTIFIED</span>
+                  <span class="cert-name">Automate the Boring Stuff with Python Programming</span>
+                  <span class="cert-issuer">Udemy</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">CERTIFIED</span>
+                  <span class="cert-name">Software Testing: Manual/QA Testing + ISTQB CTFL Help</span>
+                  <span class="cert-issuer">Udemy</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">2008 – 2014 · SOCIAL</span>
+                  <span class="cert-name">Volunteer &amp; Community Support</span>
+                  <span class="cert-issuer">Resala Charity (Zagazig branch)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </section>
 
-  <hr class="divider">
-
-  <!-- ─── EXPERIENCE ─── -->
-  <section id="experience">
-    <p class="section-label reveal">03 / experience</p>
-    <h2 class="section-title reveal">Career.</h2>
-    <div class="timeline">
-
-      <div class="tl-item reveal">
-        <div class="tl-meta">
-          <span class="tl-company">Concentrio AG</span>
-          <span class="tl-period">Jun 2023 – Present · Madrid, Spain</span>
+    <!-- =========================================================================
+         4. Featured Engineering & Open-Source Projects
+         ========================================================================= -->
+    <section class="projects-section" id="projectsSection">
+      <div class="projects-header" onclick="toggleProjectsSection()" style="cursor: pointer; user-select: none;" title="Click to Expand / Collapse Projects">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
+          <div style="flex: 1;">
+            <h2 class="projects-heading">Featured Engineering &amp; Open-Source Projects</h2>
+            <p class="projects-sub">Independent engineering research, open-source repositories, and interactive technical demonstrations.</p>
+          </div>
+          <div class="expand-toggle" id="projectsToggleBtn">+</div>
         </div>
-        <p class="tl-role">Senior Software Engineer · AUTOSAR · Graph Data Science</p>
-        <ul class="tl-bullets">
-          <li>Architected Neo4j graph solutions for automated signal-flow validation in OEM automotive software</li>
-          <li>Led multiple customer analysis projects; built Python + Docker pipelines for validation reporting</li>
-          <li>Managed technical onboarding — established documentation across complex automotive standards</li>
-        </ul>
       </div>
 
-      <div class="tl-item reveal">
-        <div class="tl-meta">
-          <span class="tl-company">TTTech Auto Iberia</span>
-          <span class="tl-period">Jun 2021 – Jun 2023 · Madrid, Spain</span>
+      <div class="projects-panel" id="projectsPanel" style="display: none; margin-top: 24px;">
+        <div class="projects-grid">
+          <!-- Project 1: Intelligence Leap EdgeAI -->
+          <div class="side-project-card" style="--card-accent: var(--accent-cyan);">
+            <div class="side-project-top">
+              <div class="side-project-head">
+                <span class="side-project-icon">🧠</span>
+                <span class="side-project-badge" style="background: rgba(56, 189, 248, 0.1); border-color: var(--accent-cyan); color: var(--accent-cyan);">Presentation · 32 Slides</span>
+              </div>
+              <div class="side-project-title">The Intelligence Leap: Edge AI &amp; TinyML</div>
+              <div class="side-project-desc">Technical conference presentation (32 slides) and interactive telemetry lab on deploying real-time deep learning inference, INT8 quantization, and sensor fusion directly on microcontrollers.</div>
+              <div class="side-project-chips">
+                <span class="chip-mini">Conference Presentation</span>
+                <span class="chip-mini">32 Slides</span>
+                <span class="chip-mini">Edge AI</span>
+                <span class="chip-mini">TinyML</span>
+                <span class="chip-mini">Sensor Fusion Lab</span>
+                <span class="chip-mini">TFLite Micro</span>
+              </div>
+            </div>
+            <a href="https://mohamed-soubhi.github.io/Intelligence-Leap-EdgeAi/" target="_blank" rel="noopener" class="side-project-link">
+              <span>Launch Interactive Presentation Hub</span> <span>↗</span>
+            </a>
+          </div>
+
+          <!-- Project 2: Embedded C++ Study Portal -->
+          <div class="side-project-card" style="--card-accent: var(--accent-neon);">
+            <div class="side-project-top">
+              <div class="side-project-head">
+                <span class="side-project-icon">⚡</span>
+                <span class="side-project-badge" style="background: rgba(16, 185, 129, 0.1); border-color: var(--accent-neon); color: var(--accent-neon);">Live Portal · 116 Projects</span>
+              </div>
+              <div class="side-project-title">Embedded Modern C++ Study Portal</div>
+              <div class="side-project-desc">Comprehensive architectural curriculum covering 116 projects from bare-metal to modern STL, deterministic memory management, ARM Cortex-M realities, and zero-overhead C++ idioms.</div>
+              <div class="side-project-chips">
+                <span class="chip-mini">Modern C++17/20</span>
+                <span class="chip-mini">ARM Cortex-M</span>
+                <span class="chip-mini">Bare-Metal &amp; STL</span>
+                <span class="chip-mini">Static Memory</span>
+              </div>
+            </div>
+            <a href="https://mohamed-soubhi.github.io/Embedded-Cpp-study-portal/" target="_blank" rel="noopener" class="side-project-link">
+              <span>Launch Live Portal</span> <span>↗</span>
+            </a>
+          </div>
+
+          <!-- Project 3: Fraud Graph Demo -->
+          <div class="side-project-card" style="--card-accent: var(--accent-amber);">
+            <div class="side-project-top">
+              <div class="side-project-head">
+                <span class="side-project-icon">🕸️</span>
+                <span class="side-project-badge" style="background: rgba(245, 158, 11, 0.1); border-color: var(--accent-amber); color: var(--accent-amber);">Live Hub · Neo4j &amp; GNN</span>
+              </div>
+              <div class="side-project-title">fraud-graph-demo</div>
+              <div class="side-project-desc">End-to-end Graph Data Science application utilizing Neo4j, Cypher queries, and graph topology algorithms to detect multi-hop complex relationship anomalies and structural fraud patterns.</div>
+              <div class="side-project-chips">
+                <span class="chip-mini">Neo4j GDS</span>
+                <span class="chip-mini">GraphSAGE GNN</span>
+                <span class="chip-mini">LangGraph AI</span>
+                <span class="chip-mini">Python</span>
+                <span class="chip-mini">PyTorch</span>
+              </div>
+            </div>
+            <a href="https://mohamed-soubhi.github.io/fraud-graph-demo/" target="_blank" rel="noopener" class="side-project-link">
+              <span>Launch Live App</span> <span>↗</span>
+            </a>
+          </div>
+
+          <!-- Project 4: Used Car Dashboard Demo -->
+          <div class="side-project-card" style="--card-accent: var(--accent-rose);">
+            <div class="side-project-top">
+              <div class="side-project-head">
+                <span class="side-project-icon">📊</span>
+                <span class="side-project-badge" style="background: rgba(244, 63, 94, 0.1); border-color: var(--accent-rose); color: var(--accent-rose);">Live App · ML Predictor</span>
+              </div>
+              <div class="side-project-title">used-car-dashboard-demo</div>
+              <div class="side-project-desc">Interactive machine learning &amp; analytics dashboard for automotive market valuation, pricing predictions, automated feature engineering, and exploratory data visualization.</div>
+              <div class="side-project-chips">
+                <span class="chip-mini">Live ML Engine</span>
+                <span class="chip-mini">Scikit-Learn</span>
+                <span class="chip-mini">Random Forest</span>
+                <span class="chip-mini">Python</span>
+                <span class="chip-mini">Streamlit</span>
+              </div>
+            </div>
+            <a href="https://mohamed-soubhi.github.io/used-car-dashboard-demo/" target="_blank" rel="noopener" class="side-project-link">
+              <span>Launch Live Valuation App</span> <span>↗</span>
+            </a>
+          </div>
         </div>
-        <p class="tl-role">Safety Embedded Software Engineer · Motionwise / HIP32G</p>
-        <ul class="tl-bullets">
-          <li>Developed safety-critical embedded modules on ARM Cortex-M7 / AURIX following full V-cycle</li>
-          <li>Contributed to ASPICE Level 4 documentation audit — team achieved zero-defect milestone</li>
-          <li>Resolved MISRA-C violations via QAC; integrated Gliwa T1 for multi-core CPU profiling</li>
-          <li>In-circuit debugging with Lauterbach Trace32; feature dev with CANalyzer and Davinci</li>
-        </ul>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. Comprehensive Technical Skills Matrix
+         ========================================================================= -->
+    <section class="skills-section" id="skillsSection">
+      <div class="skills-header" onclick="toggleSkillsSection()" style="cursor: pointer; user-select: none;" title="Click to Expand / Collapse Skills Matrix">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
+          <div style="flex: 1;">
+            <h2 class="skills-heading">Technical Skills &amp; Competency Matrix</h2>
+            <p class="skills-sub">Comprehensive overview of engineering proficiencies across embedded, safety-critical, and data science domains.</p>
+          </div>
+          <div class="expand-toggle" id="skillsToggleBtn">+</div>
+        </div>
       </div>
 
-      <div class="tl-item reveal">
-        <div class="tl-meta">
-          <span class="tl-company">Valeo</span>
-          <span class="tl-period">Jan 2017 – Jul 2021 · Cairo, Egypt</span>
+      <div class="skills-panel" id="skillsPanel" style="display: none; margin-top: 24px;">
+        <div class="skills-matrix-grid">
+          <!-- Category 1 -->
+          <div class="skill-category-card" style="--cat-accent: var(--accent-cyan);">
+            <div class="category-title">🚗 Embedded &amp; AUTOSAR</div>
+            <div class="skill-chips-wrap">
+              <span class="skill-chip featured">AUTOSAR (BSW / RTE / ASW)</span>
+              <span class="skill-chip featured">AURIX TC3xx</span>
+              <span class="skill-chip featured">ARM Cortex-M7</span>
+              <span class="skill-chip featured">STM32F4</span>
+              <span class="skill-chip">UDS / ISO 14229</span>
+              <span class="skill-chip">Complex Drivers (CDD)</span>
+              <span class="skill-chip">MISRA-C</span>
+              <span class="skill-chip">Buildroot</span>
+              <span class="skill-chip">Yocto</span>
+              <span class="skill-chip">PIC18F / PIC32</span>
+            </div>
+          </div>
+
+          <!-- Category 2 -->
+          <div class="skill-category-card" style="--cat-accent: var(--accent-neon);">
+            <div class="category-title">🧠 Edge AI &amp; Graph Intelligence</div>
+            <div class="skill-chips-wrap">
+              <span class="skill-chip featured">TensorFlow Lite Micro (INT8)</span>
+              <span class="skill-chip featured">Neo4j Graph Data Science</span>
+              <span class="skill-chip featured">PyTorch Geometric (GNN)</span>
+              <span class="skill-chip featured">LangGraph AI Agents</span>
+              <span class="skill-chip featured">DVC (Data Version Control)</span>
+              <span class="skill-chip">Python (Pandas, NumPy)</span>
+              <span class="skill-chip">Scikit-learn</span>
+              <span class="skill-chip">DSP &amp; Sensor Fusion</span>
+              <span class="skill-chip">Local LLM Inference</span>
+              <span class="skill-chip">MLOps &amp; Docker</span>
+            </div>
+          </div>
+
+          <!-- Category 3 -->
+          <div class="skill-category-card" style="--cat-accent: var(--accent-amber);">
+            <div class="category-title">🛡️ Safety &amp; Quality Standards</div>
+            <div class="skill-chips-wrap">
+              <span class="skill-chip featured">ASIL B (ISO 26262)</span>
+              <span class="skill-chip featured">ASPICE Level 4</span>
+              <span class="skill-chip featured">AURIX Safety Library</span>
+              <span class="skill-chip">SMU / SafeWDGM / SafeDGM</span>
+              <span class="skill-chip">Safetymech / SafeTSTm</span>
+              <span class="skill-chip">FMEA</span>
+              <span class="skill-chip">V-Model</span>
+              <span class="skill-chip">TDD</span>
+              <span class="skill-chip">Specs-Driven Design</span>
+            </div>
+          </div>
+
+          <!-- Category 4 -->
+          <div class="skill-category-card" style="--cat-accent: var(--accent-violet);">
+            <div class="category-title">🛠️ Vector &amp; Hardware Tools</div>
+            <div class="skill-chips-wrap">
+              <span class="skill-chip featured">Lauterbach Trace32</span>
+              <span class="skill-chip featured">Gliwa T1 Profiler</span>
+              <span class="skill-chip featured">VectorCAST</span>
+              <span class="skill-chip featured">CAPL Scripting</span>
+              <span class="skill-chip">Davinci Configurator</span>
+              <span class="skill-chip">CANalyzer / CANdb++</span>
+              <span class="skill-chip">Polyspace</span>
+              <span class="skill-chip">QAC Static Analysis</span>
+            </div>
+          </div>
+
+          <!-- Category 5 -->
+          <div class="skill-category-card" style="--cat-accent: var(--accent-teal);">
+            <div class="category-title">💻 Languages &amp; DevOps</div>
+            <div class="skill-chips-wrap">
+              <span class="skill-chip featured">C / C++ (C++20)</span>
+              <span class="skill-chip featured">Python</span>
+              <span class="skill-chip featured">Bash</span>
+              <span class="skill-chip">Linux (Kernel / Embedded)</span>
+              <span class="skill-chip">Docker</span>
+              <span class="skill-chip">Git / Bitbucket</span>
+              <span class="skill-chip">Jira &amp; Confluence</span>
+              <span class="skill-chip">Reqtify</span>
+            </div>
+          </div>
+
+          <!-- Category 6 -->
+          <div class="skill-category-card" style="--cat-accent: var(--accent-gold);">
+            <div class="category-title">🌐 Human Languages</div>
+            <div class="skill-chips-wrap">
+              <span class="skill-chip featured">Arabic (Native Mother Tongue)</span>
+              <span class="skill-chip featured">English (Professional Working Proficiency)</span>
+              <span class="skill-chip">Spanish (Elementary / A2)</span>
+            </div>
+          </div>
         </div>
-        <p class="tl-role">Senior Embedded Software Engineer · Powertrain Systems (DCDC &amp; EDC)</p>
-        <ul class="tl-bullets">
-          <li>Led ASIL B safety modules upgrade using Aurix Safety Library (SafeWDGM, SafeTSTm, SafeDGM)</li>
-          <li>Led EOL calibration software development; integrated AUTOSAR Diagnostic Component (ISO 14229-1)</li>
-          <li>Automated R&amp;D workflows in Python/JavaScript — ~20% reduction in code generation time</li>
-          <li>Static analysis with Polyspace; requirements traceability via Reqtify</li>
-        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       6. Footer
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-wrapper">
+      <!-- Contact Badges -->
+      <div class="contact-bar">
+        <span class="contact-item" style="cursor: default;">
+          <span class="contact-icon">📍</span> Madrid, Spain
+        </span>
+        <a href="mailto:eng.mohamed.soubhi@gmail.com" class="contact-item" data-copy="eng.mohamed.soubhi@gmail.com" title="Click to copy email">
+          <span class="contact-icon">✉️</span> eng.mohamed.soubhi@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/mohamed-soubhi" target="_blank" class="contact-item" title="Open LinkedIn Profile">
+          <span class="contact-icon">💼</span> linkedin.com/in/mohamed-soubhi
+        </a>
+        <a href="https://github.com/mohamed-soubhi" target="_blank" class="contact-item" title="Open GitHub Profile">
+          <span class="contact-icon">🐙</span> github.com/mohamed-soubhi
+        </a>
+        <a href="https://www.kaggle.com/mohamedsoubhi" target="_blank" class="contact-item" title="Open Kaggle Profile">
+          <span class="contact-icon">📊</span> kaggle.com/mohamedsoubhi
+        </a>
       </div>
 
-      <div class="tl-item reveal">
-        <div class="tl-meta">
-          <span class="tl-company">BioBusiness</span>
-          <span class="tl-period">Feb 2015 – Dec 2016 · Cairo, Egypt</span>
-        </div>
-        <p class="tl-role">Embedded Software Engineer · Medical Devices</p>
-        <ul class="tl-bullets">
-          <li>STM32F4 firmware for coagulation analyzer (MiraClot), patient monitor (BioMon), cloud SCADA</li>
-        </ul>
-      </div>
-
+      <p class="footer-text">
+        © 2026 <strong>Mohamed Soubhi</strong> · Interactive Career Timeline
+      </p>
     </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ─── PROJECTS ─── -->
-  <section id="projects">
-    <p class="section-label reveal">04 / projects</p>
-    <h2 class="section-title reveal">Open source work.</h2>
-    <div class="projects-grid">
-
-      <a href="https://github.com/mohamed-soubhi/c-dependency-graph" target="_blank" rel="noopener" class="proj-card reveal">
-        <div class="proj-icon">⬡</div>
-        <p class="proj-name">c-dependency-graph</p>
-        <p class="proj-desc">Parses C/C++ source and builds function-call dependency graphs in Neo4j. Directly mirrors the signal-flow validation approach used in production automotive software analysis.</p>
-        <div class="proj-stack">
-          <span class="stack-tag">Python</span>
-          <span class="stack-tag">Neo4j</span>
-          <span class="stack-tag">Cypher</span>
-        </div>
-      </a>
-
-      <a href="https://github.com/mohamed-soubhi/can-bus-analysis" target="_blank" rel="noopener" class="proj-card reveal">
-        <div class="proj-icon">〰</div>
-        <p class="proj-name">can-bus-analysis</p>
-        <p class="proj-desc">Anomaly detection on automotive CAN bus signal data using time-series analysis and machine learning classifiers on publicly available datasets.</p>
-        <div class="proj-stack">
-          <span class="stack-tag">Python</span>
-          <span class="stack-tag">Pandas</span>
-          <span class="stack-tag">Scikit-learn</span>
-        </div>
-      </a>
-
-      <a href="https://github.com/mohamed-soubhi/embedded-python-tools" target="_blank" rel="noopener" class="proj-card reveal">
-        <div class="proj-icon">⚙</div>
-        <p class="proj-name">embedded-python-tools</p>
-        <p class="proj-desc">Automation scripts for embedded workflows: MISRA violation report parsing, Trace32 log analysis, and code generation helpers from Valeo-era R&amp;D experience.</p>
-        <div class="proj-stack">
-          <span class="stack-tag">Python</span>
-          <span class="stack-tag">Embedded</span>
-          <span class="stack-tag">Automation</span>
-        </div>
-      </a>
-
-      <a href="https://github.com/mohamed-soubhi/autosar-notes" target="_blank" rel="noopener" class="proj-card reveal">
-        <div class="proj-icon">📐</div>
-        <p class="proj-name">autosar-notes</p>
-        <p class="proj-desc">Curated AUTOSAR architecture reference — BSW/RTE/ASW concepts, diagrams, and cheat sheets built from 11 years of hands-on automotive embedded work.</p>
-        <div class="proj-stack">
-          <span class="stack-tag">AUTOSAR</span>
-          <span class="stack-tag">Markdown</span>
-          <span class="stack-tag">Diagrams</span>
-        </div>
-      </a>
-
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ─── CONTACT ─── -->
-  <section id="contact">
-    <p class="section-label reveal">05 / contact</p>
-    <h2 class="section-title reveal">Open to the right opportunity.</h2>
-    <p class="contact-sub reveal">
-      Interested in Software Defined Vehicles, automotive data validation, and Edge AI/TinyML
-      in embedded systems. EU Work Permit holder (Spain).
-    </p>
-    <div class="contact-links">
-      <a href="mailto:eng.mohamed.soubhi@gmail.com" class="contact-card reveal">
-        <span class="c-icon">✉</span>
-        <strong>Email</strong>
-        <span class="c-handle">eng.mohamed.soubhi@gmail.com</span>
-      </a>
-      <a href="https://www.linkedin.com/in/mohamed-soubhi" target="_blank" rel="noopener" class="contact-card reveal">
-        <span class="c-icon">💼</span>
-        <strong>LinkedIn</strong>
-        <span class="c-handle">in/mohamed-soubhi</span>
-      </a>
-      <a href="https://github.com/mohamed-soubhi" target="_blank" rel="noopener" class="contact-card reveal">
-        <span class="c-icon">⌨</span>
-        <strong>GitHub</strong>
-        <span class="c-handle">mohamed-soubhi</span>
-      </a>
-      <a href="https://www.kaggle.com/mohamedsoubhi" target="_blank" rel="noopener" class="contact-card reveal">
-        <span class="c-icon">📊</span>
-        <strong>Kaggle</strong>
-        <span class="c-handle">mohamedsoubhi</span>
-      </a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2026 Mohamed Soubhi</p>
-    <p>Madrid, Spain · EU Work Permit · Open to automotive &amp; SDV roles</p>
   </footer>
 
-  <script>
-    // Nav scroll effect
-    const nav = document.getElementById('nav');
-    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20);
-    window.addEventListener('scroll', onScroll, { passive: true });
+  <!-- Toast Notification Placeholder -->
+  <div id="agyToast" class="toast"></div>
 
-    // Scroll-reveal via IntersectionObserver
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      }),
-      { threshold: 0.08, rootMargin: '0px 0px -36px 0px' }
-    );
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
-
+  <!-- Antigravity App JS -->
+  <script src="app.js"></script>
 </body>
 </html>
