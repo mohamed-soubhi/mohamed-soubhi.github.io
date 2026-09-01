@@ -556,6 +556,15 @@ a:hover {
   line-height: 1.1;
 }
 
+.company-subname {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: normal;
+  margin-left: 4px;
+}
+
 .role-title {
   font-size: 14px;
   font-weight: 500;
