@@ -6,12 +6,12 @@
 [![GitHub](https://img.shields.io/badge/GitHub-mohamed--soubhi-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mohamed-soubhi)
 
 <p>
-  <a href="https://www.credly.com/badges/d884ea44-85a7-41eb-8585-dd6595c8d633"><img src="images/badges/python-project-for-data-science.png" width="44" alt="Python Project for Data Science" title="Python Project for Data Science" /></a>
-  <a href="https://www.credly.com/badges/3566b99c-507f-4747-a327-e165829bc7ee"><img src="images/badges/python-for-data-science-and-ai.png" width="44" alt="Python for Data Science and AI" title="Python for Data Science and AI" /></a>
-  <a href="https://www.credly.com/badges/7ec08c56-d7e7-422b-81bb-ee54ccf5edd8"><img src="images/badges/data-science-methodology.png" width="44" alt="Data Science Methodology" title="Data Science Methodology" /></a>
-  <a href="https://www.credly.com/badges/e307f764-180e-425e-8a90-8849e2f99f1c"><img src="images/badges/tools-for-data-science-v2.png" width="44" alt="Tools for Data Science V2" title="Tools for Data Science V2" /></a>
-  <a href="https://www.credly.com/badges/0c94f44a-5117-4591-aa3e-329bfad70ef3"><img src="images/badges/data-science-orientation.png" width="44" alt="Data Science Orientation" title="Data Science Orientation" /></a>
-  <a href="https://www.credly.com/badges/d2701dcd-a1ad-43dc-8de7-bb4205520f8c"><img src="images/badges/mckinsey-forward-program.png" width="44" alt="McKinsey.org Forward Program" title="McKinsey.org Forward Program" /></a>
+  <a href="https://www.credly.com/badges/d884ea44-85a7-41eb-8585-dd6595c8d633"><img src="images/badges/python-project-for-data-science.png" width="60" alt="Python Project for Data Science" title="Python Project for Data Science" /></a>
+  <a href="https://www.credly.com/badges/3566b99c-507f-4747-a327-e165829bc7ee"><img src="images/badges/python-for-data-science-and-ai.png" width="60" alt="Python for Data Science and AI" title="Python for Data Science and AI" /></a>
+  <a href="https://www.credly.com/badges/7ec08c56-d7e7-422b-81bb-ee54ccf5edd8"><img src="images/badges/data-science-methodology.png" width="60" alt="Data Science Methodology" title="Data Science Methodology" /></a>
+  <a href="https://www.credly.com/badges/e307f764-180e-425e-8a90-8849e2f99f1c"><img src="images/badges/tools-for-data-science-v2.png" width="60" alt="Tools for Data Science V2" title="Tools for Data Science V2" /></a>
+  <a href="https://www.credly.com/badges/0c94f44a-5117-4591-aa3e-329bfad70ef3"><img src="images/badges/data-science-orientation.png" width="60" alt="Data Science Orientation" title="Data Science Orientation" /></a>
+  <a href="https://www.credly.com/badges/d2701dcd-a1ad-43dc-8de7-bb4205520f8c"><img src="images/badges/mckinsey-forward-program.png" width="60" alt="McKinsey.org Forward Program" title="McKinsey.org Forward Program" /></a>
 </p>
 
 > **Tech Lead & Embedded Architect** with 13+ years of experience in automotive software engineering (AUTOSAR BSW/RTE/ASW, ASIL B / ISO 26262, ASPICE Level 4), dual-OS embedded bootloaders (ESP-IDF FreeRTOS + Zephyr RTOS), and Graph Data Science / MLOps (Neo4j, DVC, Python).
