@@ -101,7 +101,11 @@ function initExpandCollapse() {
 /**
  * Click handler on timeline card
  */
-function toggleCard(card) {
+function toggleCard(card, e) {
+  const evt = e || window.event;
+  if (evt && (evt.target.closest('.card-panel') || evt.target.closest('a') || evt.target.closest('button'))) {
+    return;
+  }
   const panel = card.querySelector('.card-panel');
   const btn = card.querySelector('.expand-toggle');
   if (!panel || !btn) return;
