@@ -33,20 +33,20 @@ All digital badges below are officially verified by issuing organizations on **[
    - 400 parallel hardware soak cycles, zero eFuse risk, dual-transport OTA (WiFi HTTPS + NimBLE GATT), deterministic LABID framing, and automated Python HIL orchestration.
    - Includes interactive lab slide deck and `labflash` CLI.
 
-2. **[The Intelligence Leap: Edge AI & TinyML](https://mohamed-soubhi.github.io/)**
+2. **[The Intelligence Leap: Edge AI & TinyML](https://mohamed-soubhi.github.io/Intelligence-Leap-EdgeAi/)**
    - 32-slide technical presentation and interactive telemetry lab on deploying real-time deep learning inference, INT8 quantization, and sensor fusion directly on microcontrollers.
 
-3. **[Embedded Modern C++ Study Portal](https://mohamed-soubhi.github.io/)**
+3. **[Embedded Modern C++ Study Portal](https://mohamed-soubhi.github.io/Embedded-Cpp-study-portal/)**
    - Architectural curriculum covering 116 projects from bare-metal to modern STL, deterministic memory management, ARM Cortex-M realities, and zero-overhead C++ idioms.
 
-4. **[Competitive Powertrain Benchmarking](https://mohamed-soubhi.github.io/)**
+4. **[Competitive Powertrain Benchmarking](https://mohamed-soubhi.github.io/Competitive-Powertrain-Benchmarking/)**
    - EU heavy-duty vehicle (truck/bus) powertrain benchmarking and CO2 simulation platform.
    - DuckDB + Parquet analytical store (756k rows), live EEA data mining pipelines, and HistGradientBoosting ML regression models.
 
-5. **[fraud-graph-demo](https://mohamed-soubhi.github.io/)**
+5. **[fraud-graph-demo](https://mohamed-soubhi.github.io/fraud-graph-demo/)**
    - End-to-end Graph Data Science application utilizing Neo4j, Cypher queries, and graph topology algorithms to detect multi-hop complex relationship anomalies.
 
-6. **[used-car-dashboard-demo](https://mohamed-soubhi.github.io/)**
+6. **[used-car-dashboard-demo](https://mohamed-soubhi.github.io/used-car-dashboard-demo/)**
    - Interactive machine learning & analytics dashboard for automotive market valuation, pricing predictions, and exploratory data visualization.
 
 7. **[Spanish A1 Exam Prep & Study Helper](https://mohamed-soubhi.github.io/Spanish-A1-Exam-Prep/)**
@@ -72,4 +72,4 @@ All digital badges below are officially verified by issuing organizations on **[
 - **GitHub**: [github.com/mohamed-soubhi](https://github.com/mohamed-soubhi)
 - **Credly**: [credly.com/users/mohamed-soubhi](https://www.credly.com/users/mohamed-soubhi/badges)
 - **Kaggle**: [kaggle.com/mohamedsoubhi](https://www.kaggle.com/mohamedsoubhi)
-- **Portfolio**: [https://mohamed-soubhi.github.io](https://mohamed-soubhi.github.io)
+- **Portfolio**: [mohamed-soubhi.github.io](https://mohamed-soubhi.github.io/)

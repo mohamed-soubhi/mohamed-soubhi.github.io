@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mohamed Soubhi — Interactive Career Timeline</title>
-  
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+
   <!-- Antigravity Theme CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -38,7 +38,7 @@
   </header>
 
   <main class="container">
-    
+
     <!-- =========================================================================
          2. Hero Profile & Metrics Header
          ========================================================================= -->
@@ -108,6 +108,175 @@
          ========================================================================= -->
     <div class="timeline-wrapper">
       <div class="timeline-rail"></div>
+
+      <!-- ENTRY 0: CERTIFICATIONS & CONTINUOUS LEARNING -->
+      <div class="timeline-entry" data-categories="education datascience">
+        <div class="entry-year-col">
+          <div class="entry-year-label" style="color: var(--accent-rose);">2026</div>
+        </div>
+        <div class="entry-node-dot diamond" style="border-color: var(--accent-rose); --accent-card: var(--accent-rose);"></div>
+        <div class="timeline-card t-rose" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="company-logo-badge" style="background: rgba(244, 63, 94, 0.1); border-color: rgba(244, 63, 94, 0.3);">
+                <span style="font-size: 26px;">🏆</span>
+              </div>
+              <div class="company-meta-block">
+                <div class="company-name-row">
+                  <span class="company-name">Professional Certifications &amp; Continuous Learning</span>
+                  <span class="role-title">Advanced Linux, Modern C++, Data Science &amp; MLOps</span>
+                </div>
+                <div class="card-tags">
+                  <span class="tag highlight" style="color: var(--accent-rose); border-color: var(--accent-rose);">In Progress</span>
+                  <span class="tag">IBM · McKinsey · CU Boulder · Coursera · DataCamp · Udacity</span>
+                  <span class="tag">6 Credly Badges · 8+ Specializations</span>
+                </div>
+              </div>
+            </div>
+            <div class="expand-toggle">+</div>
+          </div>
+
+          <div class="card-panel">
+            <div class="panel-content">
+              <div class="credly-section-header">
+                <div class="section-subtitle" style="margin-bottom: 0;">📜 Certified Credentials &amp; Verified Specializations</div>
+                <a href="https://www.credly.com/users/mohamed-soubhi/badges" target="_blank" rel="noopener" class="cert-verify-link" title="Verify all badges on Credly Profile">
+                  <span>Verify Profile on Credly</span> <span>↗</span>
+                </a>
+              </div>
+
+              <div class="certs-grid">
+                <!-- Credly Verified Badge 1 -->
+                <a href="https://www.credly.com/badges/d884ea44-85a7-41eb-8585-dd6595c8d633" target="_blank" rel="noopener" class="cert-card cert-card-badge" title="Verify Python Project for Data Science on Credly">
+                  <div class="cert-card-header">
+                    <span class="cert-year cert-verified-badge">SEP 2026 · VERIFIED</span>
+                    <img src="images/badges/python-project-for-data-science.png" alt="" class="cert-mini-badge-img">
+                  </div>
+                  <span class="cert-name">Python Project for Data Science ↗</span>
+                  <span class="cert-issuer">IBM / Coursera (Credly)</span>
+                </a>
+
+                <!-- Credly Verified Badge 2 -->
+                <a href="https://www.credly.com/badges/3566b99c-507f-4747-a327-e165829bc7ee" target="_blank" rel="noopener" class="cert-card cert-card-badge" title="Verify Python for Data Science and AI on Credly">
+                  <div class="cert-card-header">
+                    <span class="cert-year cert-verified-badge">SEP 2026 · VERIFIED</span>
+                    <img src="images/badges/python-for-data-science-and-ai.png" alt="" class="cert-mini-badge-img">
+                  </div>
+                  <span class="cert-name">Python for Data Science and AI ↗</span>
+                  <span class="cert-issuer">IBM / Coursera (Credly)</span>
+                </a>
+
+                <!-- Credly Verified Badge 3 -->
+                <a href="https://www.credly.com/badges/7ec08c56-d7e7-422b-81bb-ee54ccf5edd8" target="_blank" rel="noopener" class="cert-card cert-card-badge" title="Verify Data Science Methodology on Credly">
+                  <div class="cert-card-header">
+                    <span class="cert-year cert-verified-badge">SEP 2026 · VERIFIED</span>
+                    <img src="images/badges/data-science-methodology.png" alt="" class="cert-mini-badge-img">
+                  </div>
+                  <span class="cert-name">Data Science Methodology ↗</span>
+                  <span class="cert-issuer">IBM / Coursera (Credly)</span>
+                </a>
+
+                <!-- Credly Verified Badge 4 -->
+                <a href="https://www.credly.com/badges/e307f764-180e-425e-8a90-8849e2f99f1c" target="_blank" rel="noopener" class="cert-card cert-card-badge" title="Verify Tools for Data Science V2 on Credly">
+                  <div class="cert-card-header">
+                    <span class="cert-year cert-verified-badge">SEP 2026 · VERIFIED</span>
+                    <img src="images/badges/tools-for-data-science-v2.png" alt="" class="cert-mini-badge-img">
+                  </div>
+                  <span class="cert-name">Tools for Data Science V2 ↗</span>
+                  <span class="cert-issuer">IBM / Coursera (Credly)</span>
+                </a>
+
+                <!-- Credly Verified Badge 5 -->
+                <a href="https://www.credly.com/badges/0c94f44a-5117-4591-aa3e-329bfad70ef3" target="_blank" rel="noopener" class="cert-card cert-card-badge" title="Verify Data Science Orientation on Credly">
+                  <div class="cert-card-header">
+                    <span class="cert-year cert-verified-badge">SEP 2026 · VERIFIED</span>
+                    <img src="images/badges/data-science-orientation.png" alt="" class="cert-mini-badge-img">
+                  </div>
+                  <span class="cert-name">Data Science Orientation ↗</span>
+                  <span class="cert-issuer">IBM / Coursera (Credly)</span>
+                </a>
+
+                <!-- Credly Verified Badge 6 -->
+                <a href="https://www.credly.com/badges/d2701dcd-a1ad-43dc-8de7-bb4205520f8c" target="_blank" rel="noopener" class="cert-card cert-card-badge" title="Verify McKinsey.org Forward Program on Credly">
+                  <div class="cert-card-header">
+                    <span class="cert-year cert-verified-badge">APR 2024 · VERIFIED</span>
+                    <img src="images/badges/mckinsey-forward-program.png" alt="" class="cert-mini-badge-img">
+                  </div>
+                  <span class="cert-name">McKinsey.org Forward Program ↗</span>
+                  <span class="cert-issuer">McKinsey.org (Credly)</span>
+                </a>
+
+                <!-- In-progress & other certifications -->
+                <div class="cert-card">
+                  <span class="cert-year">NOV 2025 · IN PROGRESS</span>
+                  <span class="cert-name">Advanced Embedded Linux Development</span>
+                  <span class="cert-issuer">University of Colorado Boulder</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">2026 · IN PROGRESS</span>
+                  <span class="cert-name">Advanced C++20 Specialization</span>
+                  <span class="cert-issuer">Coursera</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">2024 · CERTIFIED</span>
+                  <span class="cert-name">Machine Learning Engineer Track (DVC, MLOps)</span>
+                  <span class="cert-issuer">DataCamp</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">JUN 2022 – AUG 2022</span>
+                  <span class="cert-name">Machine Learning Scientist with Python</span>
+                  <span class="cert-issuer">DataCamp (Scikit-learn, Keras, Spark)</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">MAR 2021 – JUN 2021</span>
+                  <span class="cert-name">Data Analysis Professional Nanodegree</span>
+                  <span class="cert-issuer">Udacity (Pandas, NumPy, Matplotlib)</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">JUL 2021 – OCT 2021</span>
+                  <span class="cert-name">Data Analysis Nanodegree (Become a Data Scientist)</span>
+                  <span class="cert-issuer">Udacity</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">SPECIALIZATION</span>
+                  <span class="cert-name">Mastering Microcontroller with Embedded Driver Development</span>
+                  <span class="cert-issuer">Embedded Systems Academy</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">SPECIALIZATION</span>
+                  <span class="cert-name">Introduction to Embedded Machine Learning</span>
+                  <span class="cert-issuer">Edge Impulse / Coursera</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">CERTIFIED</span>
+                  <span class="cert-name">Automate the Boring Stuff with Python Programming</span>
+                  <span class="cert-issuer">Udemy</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">CERTIFIED</span>
+                  <span class="cert-name">Software Testing: Manual/QA Testing + ISTQB CTFL Help</span>
+                  <span class="cert-issuer">Udemy</span>
+                </div>
+
+                <div class="cert-card">
+                  <span class="cert-year">2008 – 2014 · SOCIAL</span>
+                  <span class="cert-name">Volunteer &amp; Community Support</span>
+                  <span class="cert-issuer">Resala Charity (Zagazig branch)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- ENTRY 1: CONCENTRIO.IO / BMW -->
       <div class="timeline-entry" data-categories="automotive datascience">
@@ -563,173 +732,6 @@
         </div>
       </div>
 
-      <!-- ENTRY 8: CERTIFICATIONS & CONTINUOUS LEARNING -->
-      <div class="timeline-entry" data-categories="education datascience">
-        <div class="entry-year-col">
-          <div class="entry-year-label" style="color: var(--accent-rose);">2026</div>
-        </div>
-        <div class="entry-node-dot diamond" style="border-color: var(--accent-rose); --accent-card: var(--accent-rose);"></div>
-        <div class="timeline-card t-rose" onclick="toggleCard(this)">
-          <div class="card-header">
-            <div class="card-title-group">
-              <div class="company-logo-badge" style="background: rgba(244, 63, 94, 0.1); border-color: rgba(244, 63, 94, 0.3);">
-                <span style="font-size: 26px;">🏆</span>
-              </div>
-              <div class="company-meta-block">
-                <div class="company-name-row">
-                  <span class="company-name">Professional Certifications &amp; Continuous Learning</span>
-                  <span class="role-title">Advanced Linux, Modern C++, Data Science &amp; MLOps</span>
-                </div>
-                <div class="card-tags">
-                  <span class="tag highlight" style="color: var(--accent-rose); border-color: var(--accent-rose);">In Progress</span>
-                  <span class="tag">IBM · McKinsey · CU Boulder · Coursera · DataCamp · Udacity</span>
-                  <span class="tag">6 Credly Badges · 8+ Specializations</span>
-                </div>
-              </div>
-            </div>
-            <div class="expand-toggle">+</div>
-          </div>
-
-          <div class="card-panel">
-            <div class="panel-content">
-              <div class="credly-section-header">
-                <div class="section-subtitle" style="margin-bottom: 0;">📜 Certified Credentials &amp; Verified Specializations</div>
-                <a href="https://www.credly.com/users/mohamed-soubhi/badges" target="_blank" rel="noopener" class="cert-verify-link" title="Verify all badges on Credly Profile">
-                  <span>Verify Profile on Credly</span> <span>↗</span>
-                </a>
-              </div>
-
-              <div class="certs-grid">
-                <!-- Credly Verified Badge 1 -->
-                <a href="https://www.credly.com/badges/d884ea44-85a7-41eb-8585-dd6595c8d633" target="_blank" rel="noopener" class="cert-card cert-card-badge" title="Verify Python Project for Data Science on Credly">
-                  <div class="cert-card-header">
-                    <span class="cert-year cert-verified-badge">SEP 2026 · VERIFIED</span>
-                    <img src="images/badges/python-project-for-data-science.png" alt="" class="cert-mini-badge-img">
-                  </div>
-                  <span class="cert-name">Python Project for Data Science ↗</span>
-                  <span class="cert-issuer">IBM / Coursera (Credly)</span>
-                </a>
-
-                <!-- Credly Verified Badge 2 -->
-                <a href="https://www.credly.com/badges/3566b99c-507f-4747-a327-e165829bc7ee" target="_blank" rel="noopener" class="cert-card cert-card-badge" title="Verify Python for Data Science and AI on Credly">
-                  <div class="cert-card-header">
-                    <span class="cert-year cert-verified-badge">SEP 2026 · VERIFIED</span>
-                    <img src="images/badges/python-for-data-science-and-ai.png" alt="" class="cert-mini-badge-img">
-                  </div>
-                  <span class="cert-name">Python for Data Science and AI ↗</span>
-                  <span class="cert-issuer">IBM / Coursera (Credly)</span>
-                </a>
-
-                <!-- Credly Verified Badge 3 -->
-                <a href="https://www.credly.com/badges/7ec08c56-d7e7-422b-81bb-ee54ccf5edd8" target="_blank" rel="noopener" class="cert-card cert-card-badge" title="Verify Data Science Methodology on Credly">
-                  <div class="cert-card-header">
-                    <span class="cert-year cert-verified-badge">SEP 2026 · VERIFIED</span>
-                    <img src="images/badges/data-science-methodology.png" alt="" class="cert-mini-badge-img">
-                  </div>
-                  <span class="cert-name">Data Science Methodology ↗</span>
-                  <span class="cert-issuer">IBM / Coursera (Credly)</span>
-                </a>
-
-                <!-- Credly Verified Badge 4 -->
-                <a href="https://www.credly.com/badges/e307f764-180e-425e-8a90-8849e2f99f1c" target="_blank" rel="noopener" class="cert-card cert-card-badge" title="Verify Tools for Data Science V2 on Credly">
-                  <div class="cert-card-header">
-                    <span class="cert-year cert-verified-badge">SEP 2026 · VERIFIED</span>
-                    <img src="images/badges/tools-for-data-science-v2.png" alt="" class="cert-mini-badge-img">
-                  </div>
-                  <span class="cert-name">Tools for Data Science V2 ↗</span>
-                  <span class="cert-issuer">IBM / Coursera (Credly)</span>
-                </a>
-
-                <!-- Credly Verified Badge 5 -->
-                <a href="https://www.credly.com/badges/0c94f44a-5117-4591-aa3e-329bfad70ef3" target="_blank" rel="noopener" class="cert-card cert-card-badge" title="Verify Data Science Orientation on Credly">
-                  <div class="cert-card-header">
-                    <span class="cert-year cert-verified-badge">SEP 2026 · VERIFIED</span>
-                    <img src="images/badges/data-science-orientation.png" alt="" class="cert-mini-badge-img">
-                  </div>
-                  <span class="cert-name">Data Science Orientation ↗</span>
-                  <span class="cert-issuer">IBM / Coursera (Credly)</span>
-                </a>
-
-                <!-- Credly Verified Badge 6 -->
-                <a href="https://www.credly.com/badges/d2701dcd-a1ad-43dc-8de7-bb4205520f8c" target="_blank" rel="noopener" class="cert-card cert-card-badge" title="Verify McKinsey.org Forward Program on Credly">
-                  <div class="cert-card-header">
-                    <span class="cert-year cert-verified-badge">APR 2024 · VERIFIED</span>
-                    <img src="images/badges/mckinsey-forward-program.png" alt="" class="cert-mini-badge-img">
-                  </div>
-                  <span class="cert-name">McKinsey.org Forward Program ↗</span>
-                  <span class="cert-issuer">McKinsey.org (Credly)</span>
-                </a>
-                <div class="cert-card">
-                  <span class="cert-year">NOV 2025 · IN PROGRESS</span>
-                  <span class="cert-name">Advanced Embedded Linux Development</span>
-                  <span class="cert-issuer">University of Colorado Boulder</span>
-                </div>
-
-                <div class="cert-card">
-                  <span class="cert-year">2026 · IN PROGRESS</span>
-                  <span class="cert-name">Advance C++20 Specialization</span>
-                  <span class="cert-issuer">Coursera</span>
-                </div>
-
-                <div class="cert-card">
-                  <span class="cert-year">2024 · CERTIFIED</span>
-                  <span class="cert-name">Machine Learning Engineer Track (DVC, MLOps)</span>
-                  <span class="cert-issuer">DataCamp</span>
-                </div>
-
-                <div class="cert-card">
-                  <span class="cert-year">JUN 2022 – AUG 2022</span>
-                  <span class="cert-name">Machine Learning Scientist with Python</span>
-                  <span class="cert-issuer">DataCamp (Scikit-learn, Keras, Spark)</span>
-                </div>
-
-                <div class="cert-card">
-                  <span class="cert-year">MAR 2021 – JUN 2021</span>
-                  <span class="cert-name">Data Analysis Professional Nanodegree</span>
-                  <span class="cert-issuer">Udacity (Pandas, NumPy, Matplotlib)</span>
-                </div>
-
-                <div class="cert-card">
-                  <span class="cert-year">JUL 2021 – OCT 2021</span>
-                  <span class="cert-name">Data Analysis Nanodegree (Become a Data Scientist)</span>
-                  <span class="cert-issuer">Udacity</span>
-                </div>
-
-                <div class="cert-card">
-                  <span class="cert-year">SPECIALIZATION</span>
-                  <span class="cert-name">Mastering Microcontroller with Embedded Driver Development</span>
-                  <span class="cert-issuer">Embedded Systems Academy</span>
-                </div>
-
-                <div class="cert-card">
-                  <span class="cert-year">SPECIALIZATION</span>
-                  <span class="cert-name">Introduction to Embedded Machine Learning</span>
-                  <span class="cert-issuer">Edge Impulse / Coursera</span>
-                </div>
-
-                <div class="cert-card">
-                  <span class="cert-year">CERTIFIED</span>
-                  <span class="cert-name">Automate the Boring Stuff with Python Programming</span>
-                  <span class="cert-issuer">Udemy</span>
-                </div>
-
-                <div class="cert-card">
-                  <span class="cert-year">CERTIFIED</span>
-                  <span class="cert-name">Software Testing: Manual/QA Testing + ISTQB CTFL Help</span>
-                  <span class="cert-issuer">Udemy</span>
-                </div>
-
-                <div class="cert-card">
-                  <span class="cert-year">2008 – 2014 · SOCIAL</span>
-                  <span class="cert-name">Volunteer &amp; Community Support</span>
-                  <span class="cert-issuer">Resala Charity (Zagazig branch)</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
 
     <!-- =========================================================================
@@ -792,7 +794,7 @@
             </a>
           </div>
 
-          <!-- Project: bootlab-esp Dual-OS Bootloader & Resilient OTA Testbed -->
+          <!-- Project 3: bootlab-esp Dual-OS Bootloader &amp; Resilient OTA Testbed -->
           <div class="side-project-card" style="--card-accent: var(--accent-neon);">
             <div class="side-project-top">
               <div class="side-project-head">
@@ -817,7 +819,7 @@
             </a>
           </div>
 
-          <!-- Project 3: Competitive Powertrain Benchmarking -->
+          <!-- Project 4: Competitive Powertrain Benchmarking -->
           <div class="side-project-card" style="--card-accent: var(--accent-violet);">
             <div class="side-project-top">
               <div class="side-project-head">
@@ -840,7 +842,7 @@
             </a>
           </div>
 
-          <!-- Project 4: Fraud Graph Demo -->
+          <!-- Project 5: Fraud Graph Demo -->
           <div class="side-project-card" style="--card-accent: var(--accent-amber);">
             <div class="side-project-top">
               <div class="side-project-head">
@@ -862,7 +864,7 @@
             </a>
           </div>
 
-          <!-- Project 5: Used Car Dashboard Demo -->
+          <!-- Project 6: Used Car Dashboard Demo -->
           <div class="side-project-card" style="--card-accent: var(--accent-rose);">
             <div class="side-project-top">
               <div class="side-project-head">
@@ -884,7 +886,7 @@
             </a>
           </div>
 
-          <!-- Project 6: Spanish A1 Exam Prep & Study Helper -->
+          <!-- Project 7: Spanish A1 Exam Prep &amp; Study Helper -->
           <div class="side-project-card" style="--card-accent: var(--accent-rose);">
             <div class="side-project-top">
               <div class="side-project-head">
@@ -1014,7 +1016,7 @@
             <div class="skill-chips-wrap">
               <span class="skill-chip featured">Arabic (Native Mother Tongue)</span>
               <span class="skill-chip featured">English (Professional Working Proficiency)</span>
-              <a href="https://mohamed-soubhi.github.io/Spanish-A1-Exam-Prep/" target="_blank" rel="noopener" class="skill-chip featured" style="text-decoration:none;" title="Launch Spanish A1 Exam Prep & Study Helper">🇪🇸 Spanish (A1 Study Helper ↗)</a>
+              <a href="https://mohamed-soubhi.github.io/Spanish-A1-Exam-Prep/" target="_blank" rel="noopener" class="skill-chip featured" style="text-decoration:none;" title="Launch Spanish A1 Exam Prep &amp; Study Helper">🇪🇸 Spanish (A1 Study Helper ↗)</a>
             </div>
           </div>
         </div>
@@ -1036,16 +1038,16 @@
         <a href="mailto:eng.mohamed.soubhi@gmail.com" class="contact-item" data-copy="eng.mohamed.soubhi@gmail.com" title="Click to copy email">
           <span class="contact-icon">✉️</span> eng.mohamed.soubhi@gmail.com
         </a>
-        <a href="https://linkedin.com/in/mohamed-soubhi" target="_blank" class="contact-item" title="Open LinkedIn Profile">
+        <a href="https://linkedin.com/in/mohamed-soubhi" target="_blank" rel="noopener" class="contact-item" title="Open LinkedIn Profile">
           <span class="contact-icon">💼</span> linkedin.com/in/mohamed-soubhi
         </a>
-        <a href="https://github.com/mohamed-soubhi" target="_blank" class="contact-item" title="Open GitHub Profile">
+        <a href="https://github.com/mohamed-soubhi" target="_blank" rel="noopener" class="contact-item" title="Open GitHub Profile">
           <span class="contact-icon">🐙</span> github.com/mohamed-soubhi
         </a>
         <a href="https://www.credly.com/users/mohamed-soubhi/badges" target="_blank" rel="noopener" class="contact-item" title="Open Credly Badges &amp; Verified Credentials">
           <span class="contact-icon">🎖️</span> credly.com/users/mohamed-soubhi
         </a>
-        <a href="https://www.kaggle.com/mohamedsoubhi" target="_blank" class="contact-item" title="Open Kaggle Profile">
+        <a href="https://www.kaggle.com/mohamedsoubhi" target="_blank" rel="noopener" class="contact-item" title="Open Kaggle Profile">
           <span class="contact-icon">📊</span> kaggle.com/mohamedsoubhi
         </a>
       </div>
