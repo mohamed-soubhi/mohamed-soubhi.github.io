@@ -1,0 +1,19 @@
+{
+  "name": "mohamed-soubhi.github.io",
+  "version": "1.0.0",
+  "description": "Interactive career timeline and portfolio of Mohamed Soubhi — Tech Lead & Embedded Architect (AUTOSAR, ASIL B, Graph Data Science).",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohamed-soubhi/mohamed-soubhi.github.io.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mohamed-soubhi/mohamed-soubhi.github.io/issues"
+  },
+  "homepage": "https://github.com/mohamed-soubhi/mohamed-soubhi.github.io#readme"
+}
