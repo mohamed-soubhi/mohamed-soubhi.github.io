@@ -835,20 +835,20 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 26px;
+  height: 26px;
   flex-shrink: 0;
   border-radius: var(--radius-sm);
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
-  padding: 3px;
+  padding: 2px;
   transition: all var(--transition-fast);
   text-decoration: none;
   position: relative;
 }
 
 .hero-badge-link:hover {
-  transform: translateY(-2px) scale(1.15);
+  transform: translateY(-2px) scale(1.2);
   border-color: var(--accent-rose);
   background: var(--bg-surface-hover);
   box-shadow: 0 4px 14px rgba(244, 63, 94, 0.35);
@@ -867,8 +867,8 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 3px 8px;
-  height: 26px;
+  padding: 2px 7px;
+  height: 22px;
   flex-shrink: 0;
   border-radius: var(--radius-full);
   background: rgba(244, 63, 94, 0.08);
